@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { useLenis } from "lenis/react";
 import { ArrowUpRight, Linkedin, Menu, Sparkles, X } from "lucide-react";
 import { CONTACT, NAV_LINKS } from "../data";
 
@@ -20,7 +21,9 @@ export default function Navigation() {
   const [progress, setProgress] = useState(0);
   const barRef = useRef<HTMLDivElement>(null);
   const toggleRef = useRef<HTMLButtonElement>(null);
+  const scrollTimerRef = useRef<number | null>(null);
   const reduceMotion = useReducedMotion();
+  const lenis = useLenis();
   const accent = ACCENTS[active] ?? ACCENTS["#home"];
 
   useEffect(() => {
@@ -54,6 +57,7 @@ export default function Navigation() {
     window.addEventListener("resize", queue);
     return () => {
       if (frame) window.cancelAnimationFrame(frame);
+      if (scrollTimerRef.current) window.clearTimeout(scrollTimerRef.current);
       window.removeEventListener("scroll", queue);
       window.removeEventListener("resize", queue);
     };
@@ -74,14 +78,20 @@ export default function Navigation() {
     event.preventDefault();
     const target = document.getElementById(href.slice(1));
     if (!target) return;
+    const wasOpen = open;
     setActive(href);
     setOpen(false);
     const offset = (barRef.current?.getBoundingClientRect().height ?? 64) + 28;
-    window.scrollTo({
-      top: Math.max(0, target.getBoundingClientRect().top + window.scrollY - offset),
-      behavior: reduceMotion ? "auto" : "smooth",
-    });
     window.history.replaceState(null, "", href);
+    if (scrollTimerRef.current) window.clearTimeout(scrollTimerRef.current);
+    scrollTimerRef.current = window.setTimeout(() => {
+      if (reduceMotion || !lenis) {
+        const top = Math.max(0, target.getBoundingClientRect().top + window.scrollY - offset);
+        window.scrollTo({ top, behavior: reduceMotion ? "auto" : "smooth" });
+        return;
+      }
+      lenis.scrollTo(target, { offset: -offset, duration: 1.05, force: true });
+    }, wasOpen ? 320 : 0);
   };
 
   return (
@@ -114,7 +124,7 @@ export default function Navigation() {
               {NAV_LINKS.map((link) => {
                 const isActive = active === link.href;
                 return (
-                  <a key={link.href} href={link.href} onClick={(event) => navigate(event, link.href)} aria-current={isActive ? "location" : undefined} className={`group relative isolate overflow-hidden rounded-full px-4 py-2 text-[11px] font-bold uppercase tracking-[.08em] transition-colors ${isActive ? "text-[var(--ink)]" : "text-[var(--muted)] hover:text-[var(--ink)]"}`}>
+                  <a key={link.href} href={link.href} onClick={(event) => navigate(event, link.href)} aria-current={isActive ? "location" : undefined} className="group relative isolate overflow-hidden rounded-full px-4 py-2 text-[11px] font-bold uppercase tracking-[.08em] transition-colors" style={{ color: isActive ? "#06080b" : "#ffffff" }}>
                     {!isActive && <span aria-hidden="true" className="absolute inset-0 -z-10 rounded-full opacity-0 transition-opacity group-hover:opacity-100" style={{ backgroundColor: ACCENTS[link.href] }} />}
                     {isActive && <motion.span layoutId="active-nav-pill" className="absolute inset-0 -z-10 rounded-full" style={{ backgroundColor: accent }} transition={{ type: "spring", stiffness: 430, damping: 34 }} />}
                     {link.name}
@@ -125,13 +135,13 @@ export default function Navigation() {
 
             <div className="hidden items-center gap-2 xl:flex">
               <a href={CONTACT.linkedin} target="_blank" rel="noopener noreferrer" aria-label="Alviro Tech on LinkedIn" className="grid size-9 place-items-center rounded-full border border-white/10 text-[var(--muted)] transition hover:border-white/25 hover:bg-white/[.06] hover:text-white"><Linkedin className="size-4" /></a>
-              <a href="#contact" onClick={(event) => navigate(event, "#contact")} className="ml-1 inline-flex h-10 items-center gap-2 rounded-full px-4 text-[11px] font-black uppercase tracking-[.08em] text-black transition hover:-translate-y-0.5" style={{ backgroundColor: accent }}>
+              <a href="#contact" onClick={(event) => navigate(event, "#contact")} className="ml-1 inline-flex h-10 items-center gap-2 rounded-full px-4 text-[11px] font-black uppercase tracking-[.08em] transition hover:-translate-y-0.5" style={{ backgroundColor: accent, color: "#06080b" }}>
                 Request a quote <ArrowUpRight className="size-3.5" />
               </a>
             </div>
 
             <div className="flex shrink-0 items-center gap-2 xl:hidden">
-              <a href="#contact" onClick={(event) => navigate(event, "#contact")} className="inline-flex h-10 items-center gap-2 rounded-xl px-3 text-[10px] font-black uppercase tracking-[.06em] text-black sm:rounded-full sm:px-4" style={{ backgroundColor: accent }}>
+              <a href="#contact" onClick={(event) => navigate(event, "#contact")} className="inline-flex h-10 items-center gap-2 rounded-xl px-3 text-[10px] font-black uppercase tracking-[.06em] sm:rounded-full sm:px-4" style={{ backgroundColor: accent, color: "#06080b" }}>
                 <span className="hidden sm:inline">Request quote</span><ArrowUpRight className="size-3.5" />
               </a>
               <button ref={toggleRef} type="button" aria-expanded={open} aria-controls="mobile-menu" aria-label={open ? "Close navigation" : "Open navigation"} onClick={() => setOpen((value) => !value)} className="grid size-10 place-items-center rounded-xl border border-white/10 bg-white/[.04] text-white">
@@ -147,7 +157,7 @@ export default function Navigation() {
                   {NAV_LINKS.map((link, index) => {
                     const isActive = active === link.href;
                     return (
-                      <a key={link.href} href={link.href} onClick={(event) => navigate(event, link.href)} aria-current={isActive ? "location" : undefined} className={`flex items-center justify-between rounded-xl px-4 py-3 text-sm font-bold ${isActive ? "text-[var(--ink)]" : "text-[var(--muted)] hover:bg-white/[.05] hover:text-white"}`} style={isActive ? { backgroundColor: ACCENTS[link.href] } : undefined}>
+                      <a key={link.href} href={link.href} onClick={(event) => navigate(event, link.href)} aria-current={isActive ? "location" : undefined} className="flex items-center justify-between rounded-xl px-4 py-3 text-sm font-bold hover:bg-white/[.05]" style={{ backgroundColor: isActive ? ACCENTS[link.href] : "transparent", color: isActive ? "#06080b" : "#ffffff" }}>
                         {link.name}<span className="mono-type text-[10px] opacity-60">0{index + 1}</span>
                       </a>
                     );

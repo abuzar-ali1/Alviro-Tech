@@ -1,5 +1,6 @@
 "use client";
 
+import type { CSSProperties } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowUpRight, BarChart3, Layers3, MessageCircle, MousePointer2, Quote, Search, ShieldCheck, Sparkles } from "lucide-react";
 import { PROCESS, SERVICES, TESTIMONIALS } from "../data";
@@ -38,13 +39,21 @@ export function Services() {
           <p className="border-l border-[var(--cyan)] pl-5 text-base leading-7 text-[var(--muted)] sm:text-lg">Strategy, creative, technology, and optimization working together—never as disconnected deliverables.</p>
         </motion.header>
 
-        <div className="space-y-5">
+        <div className="space-y-8 lg:space-y-12">
           {SERVICES.map((service, index) => {
             const Icon = SERVICE_ICONS[index];
             return (
-              <motion.article key={service.number} initial={reduceMotion ? false : { opacity: 0, y: 42 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.18 }} transition={{ duration: 0.75, delay: index * 0.04, ease: [0.16, 1, 0.3, 1] }} className="service-card project-glow relative overflow-hidden rounded-[1.75rem] border border-white/11 bg-[#111820] shadow-[0_30px_90px_rgba(0,0,0,.3)] lg:rounded-[2.25rem]" style={{ zIndex: index + 1 }}>
+              <motion.article
+                key={service.number}
+                initial={reduceMotion ? false : { opacity: 0, y: 42, scale: 0.985 }}
+                whileInView={reduceMotion ? undefined : { opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true, amount: 0.18 }}
+                transition={{ duration: 0.78, delay: index * 0.04, ease: [0.16, 1, 0.3, 1] }}
+                className="service-card project-glow relative isolate overflow-hidden rounded-[1.75rem] border border-white/11 bg-[#111820] shadow-[0_34px_100px_rgba(0,0,0,.42)] lg:min-h-[34rem] lg:rounded-[2.25rem]"
+                style={{ "--service-top": `${96 + index * 18}px`, zIndex: index + 1 } as CSSProperties}
+              >
                 <div className="absolute inset-y-0 left-0 w-1.5" style={{ backgroundColor: service.accent }} aria-hidden="true" />
-                <div className="grid gap-8 p-6 sm:p-8 lg:grid-cols-[.72fr_1.28fr] lg:items-center lg:p-11">
+                <div className="grid h-full gap-8 p-6 sm:p-8 lg:min-h-[34rem] lg:grid-cols-[.72fr_1.28fr] lg:items-center lg:p-11">
                   <div>
                     <div className="flex items-center justify-between gap-5"><span className="mono-type text-[11px] font-bold tracking-[.2em] text-white/35">{service.number}</span><span className="grid size-12 place-items-center rounded-2xl text-[var(--ink)]" style={{ backgroundColor: service.accent }}><Icon className="size-5" /></span></div>
                     <p className="eyebrow mt-12" style={{ color: service.accent }}>{service.shortTitle}</p>

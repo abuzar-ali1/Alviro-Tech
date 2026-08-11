@@ -135,7 +135,7 @@ section { scroll-margin-top: 84px; }
 @keyframes breathe { 0%,100% { opacity: .5; transform: scale(.96); } 50% { opacity: .9; transform: scale(1.06); } }
 
 @media (min-width: 768px) { .site-container { width: min(100% - 4rem, 84rem); } }
-@media (min-width: 1024px) { .service-card { position: sticky; top: 7rem; } }
+@media (min-width: 1024px) { .service-card { position: sticky; top: var(--service-top, 7rem); } }
 @media (max-width: 639px) {
   .display-type { letter-spacing: -.055em; }
   .cta-primary, .cta-secondary { width: 100%; }
@@ -144,5 +144,6 @@ section { scroll-margin-top: 84px; }
 @media (pointer: coarse) { .cta-primary:hover, .cta-secondary:hover { transform: none; } }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+  .service-card { position: relative !important; top: auto !important; }
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }

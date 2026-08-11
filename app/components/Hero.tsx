@@ -73,7 +73,7 @@ export default function Hero() {
                   <span className="mono-type text-[8px] font-bold uppercase tracking-[.2em] text-white/35">Growth OS / live</span>
                 </div>
                 <div className="mt-7 flex items-end justify-between gap-4">
-                  <div><p className="mono-type text-[9px] font-bold uppercase tracking-[.17em] text-[var(--cyan)]">Velocity signal</p><p className="display-type mt-2 text-5xl text-white sm:text-6xl">+42%</p><p className="mt-1 text-xs text-white/40">conversion momentum</p></div>
+                  <div><p className="mono-type text-[9px] font-bold uppercase tracking-[.17em] text-[var(--cyan)]">Velocity signal</p><p className="display-type mt-2 text-5xl text-white sm:text-6xl">LIVE</p><p className="mt-1 text-xs text-white/40">growth systems active</p></div>
                   <div className="grid size-12 place-items-center rounded-2xl bg-[var(--acid)] text-[var(--ink)]"><TrendingUp className="size-5" /></div>
                 </div>
                 <div className="relative mt-8 h-32 overflow-hidden rounded-2xl border border-white/10 bg-black/20 p-4">
@@ -82,7 +82,7 @@ export default function Hero() {
                   </div>
                 </div>
                 <div className="mt-5 grid grid-cols-2 gap-3">
-                  {[{ label: "Qualified demand", value: "High", icon: Target }, { label: "System health", value: "98.6%", icon: Activity }].map((item) => <div key={item.label} className="rounded-2xl border border-white/10 bg-white/[.04] p-4"><item.icon className="mb-4 size-4 text-[var(--cyan)]" /><p className="text-lg font-black text-white">{item.value}</p><p className="mono-type mt-1 text-[8px] uppercase tracking-[.13em] text-white/35">{item.label}</p></div>)}
+                  {[{ label: "Qualified demand", value: "High", icon: Target }, { label: "System health", value: "Ready", icon: Activity }].map((item) => <div key={item.label} className="rounded-2xl border border-white/10 bg-white/[.04] p-4"><item.icon className="mb-4 size-4 text-[var(--cyan)]" /><p className="text-lg font-black text-white">{item.value}</p><p className="mono-type mt-1 text-[8px] uppercase tracking-[.13em] text-white/35">{item.label}</p></div>)}
                 </div>
                 <div className="glass-panel mt-auto flex items-center justify-between gap-4 rounded-2xl p-4">
                   <div className="flex items-center gap-3"><span className="grid size-9 place-items-center rounded-xl bg-[var(--cyan)]/12 text-[var(--cyan)]"><Rocket className="size-4" /></span><div><p className="text-sm font-black text-white">Built to compound</p><p className="text-[10px] text-white/38">strategy × design × technology</p></div></div>
