@@ -31,7 +31,7 @@ export function BrandRail() {
 export function Services() {
   const reduceMotion = useReducedMotion();
   return (
-    <section id="services" className="relative overflow-hidden bg-[var(--ink-soft)] py-24 sm:py-32">
+    <section id="services" className="relative overflow-clip bg-[var(--ink-soft)] py-24 sm:py-32">
       <div className="grid-field absolute inset-0 opacity-45" aria-hidden="true" />
       <div className="site-container relative">
         <motion.header variants={reveal} initial={reduceMotion ? false : "hidden"} whileInView="visible" viewport={{ once: true, amount: 0.3 }} className="mb-14 grid gap-8 lg:mb-20 lg:grid-cols-[1fr_25rem] lg:items-end">
