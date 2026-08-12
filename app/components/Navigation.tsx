@@ -112,7 +112,7 @@ export default function Navigation() {
         <div className={`site-container pointer-events-auto rounded-[1.25rem] border px-3 backdrop-blur-2xl transition duration-500 sm:px-4 ${scrolled ? "border-white/15 bg-[rgba(6,8,11,.94)] shadow-[0_22px_70px_rgba(0,0,0,.46)]" : "border-white/10 bg-[rgba(6,8,11,.78)] shadow-[0_14px_48px_rgba(0,0,0,.24)]"}`}>
           <div ref={barRef} className="flex h-16 items-center justify-between gap-3">
             <a href="#home" onClick={(event) => navigate(event, "#home")} aria-label="Alviro Tech, return to the top" className="flex min-w-0 items-center gap-3 rounded-xl">
-              <span className="grid size-10 shrink-0 place-items-center rounded-xl border border-black/10 p-1.5 shadow-[0_8px_24px_rgba(0,0,0,.18)] transition-colors duration-500" style={{ backgroundColor: accent }}>
+              <span data-header-accent="logo" className="grid size-10 shrink-0 place-items-center rounded-xl border border-black/10 p-1.5 shadow-[0_8px_24px_rgba(0,0,0,.18)] transition-colors duration-500" style={{ backgroundColor: accent }}>
                 <Image src="/Alviro-Tech-Logo-Black.png" alt="" width={937} height={823} priority className="h-full w-full object-contain" />
               </span>
               <span className="min-w-0">
@@ -127,7 +127,7 @@ export default function Navigation() {
                 return (
                   <a key={link.href} href={link.href} onClick={(event) => navigate(event, link.href)} aria-current={isActive ? "location" : undefined} className="group relative isolate overflow-hidden rounded-full px-4 py-2 text-[11px] font-bold uppercase tracking-[.08em] transition-colors" style={{ color: isActive ? "#06080b" : "#ffffff" }}>
                     {!isActive && <span aria-hidden="true" className="absolute inset-0 -z-10 rounded-full opacity-0 transition-opacity group-hover:opacity-100" style={{ backgroundColor: ACCENTS[link.href] }} />}
-                    {isActive && <motion.span layoutId="active-nav-pill" className="absolute inset-0 -z-10 rounded-full" style={{ backgroundColor: accent }} transition={{ type: "spring", stiffness: 430, damping: 34 }} />}
+                    {isActive && <motion.span data-header-accent="active" layoutId="active-nav-pill" className="absolute inset-0 -z-10 rounded-full transition-colors duration-500" style={{ backgroundColor: accent }} transition={{ type: "spring", stiffness: 430, damping: 34 }} />}
                     {link.name}
                   </a>
                 );
@@ -136,13 +136,13 @@ export default function Navigation() {
 
             <div className="hidden items-center gap-2 xl:flex">
               <a href={CONTACT.linkedin} target="_blank" rel="noopener noreferrer" aria-label="Alviro Tech on LinkedIn" className="grid size-9 place-items-center rounded-full border border-white/10 text-[var(--muted)] transition hover:border-white/25 hover:bg-white/[.06] hover:text-white"><Linkedin className="size-4" /></a>
-              <a href="#contact" onClick={(event) => navigate(event, "#contact")} className="ml-1 inline-flex h-10 items-center gap-2 rounded-full px-4 text-[11px] font-black uppercase tracking-[.08em] transition hover:-translate-y-0.5" style={{ backgroundColor: accent, color: "#06080b" }}>
+              <a data-header-accent="quote" href="#contact" onClick={(event) => navigate(event, "#contact")} className="ml-1 inline-flex h-10 items-center gap-2 rounded-full px-4 text-[11px] font-black uppercase tracking-[.08em] transition-[background-color,transform] duration-500 hover:-translate-y-0.5" style={{ backgroundColor: accent, color: "#06080b" }}>
                 Request a quote <ArrowUpRight className="size-3.5" />
               </a>
             </div>
 
             <div className="flex shrink-0 items-center gap-2 xl:hidden">
-              <a href="#contact" onClick={(event) => navigate(event, "#contact")} className="inline-flex h-10 items-center gap-2 rounded-xl px-3 text-[10px] font-black uppercase tracking-[.06em] sm:rounded-full sm:px-4" style={{ backgroundColor: accent, color: "#06080b" }}>
+              <a data-header-accent="quote" href="#contact" onClick={(event) => navigate(event, "#contact")} className="inline-flex h-10 items-center gap-2 rounded-xl px-3 text-[10px] font-black uppercase tracking-[.06em] transition-colors duration-500 sm:rounded-full sm:px-4" style={{ backgroundColor: accent, color: "#06080b" }}>
                 <span className="hidden sm:inline">Request quote</span><ArrowUpRight className="size-3.5" />
               </a>
               <button ref={toggleRef} type="button" aria-expanded={open} aria-controls="mobile-menu" aria-label={open ? "Close navigation" : "Open navigation"} onClick={() => setOpen((value) => !value)} className="grid size-10 place-items-center rounded-xl border border-white/10 bg-white/[.04] text-white">
