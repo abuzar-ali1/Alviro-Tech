@@ -159,9 +159,9 @@ export const TESTIMONIALS = [
 
 export const CONTACT = {
   email: "scale@alvirotech.com",
-  phoneDisplay: "+44 7804 530680",
-  phone: "447804530680",
-  whatsapp: "https://wa.me/447804530680",
+  phoneDisplay: "+92 317 493 1897",
+  phone: "+923174931897",
+  whatsapp: "https://wa.me/923174931897",
   facebook: "https://www.facebook.com/profile.php?id=61570788661033",
   instagram: "https://www.instagram.com/alvirotech",
   linkedin: "https://www.linkedin.com/company/alvirotech/",
