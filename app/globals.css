@@ -126,7 +126,7 @@ section { scroll-margin-top: 84px; }
 .project-glow:hover::before { opacity: .7; }
 
 .growth-bar {
-  cursor: none;
+  cursor: pointer;
   transform-origin: bottom;
   will-change: transform, height;
   box-shadow: 0 0 18px rgba(200,255,90,.1);

@@ -1,9 +1,10 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useLenis } from "lenis/react";
-import { ArrowUpRight, Linkedin, Menu, Sparkles, X } from "lucide-react";
+import { ArrowUpRight, Linkedin, Menu, X } from "lucide-react";
 import { CONTACT, NAV_LINKS } from "../data";
 
 const ACCENTS: Record<string, string> = {
@@ -111,8 +112,8 @@ export default function Navigation() {
         <div className={`site-container pointer-events-auto rounded-[1.25rem] border px-3 backdrop-blur-2xl transition duration-500 sm:px-4 ${scrolled ? "border-white/15 bg-[rgba(6,8,11,.94)] shadow-[0_22px_70px_rgba(0,0,0,.46)]" : "border-white/10 bg-[rgba(6,8,11,.78)] shadow-[0_14px_48px_rgba(0,0,0,.24)]"}`}>
           <div ref={barRef} className="flex h-16 items-center justify-between gap-3">
             <a href="#home" onClick={(event) => navigate(event, "#home")} aria-label="Alviro Tech, return to the top" className="flex min-w-0 items-center gap-3 rounded-xl">
-              <span className="grid size-9 shrink-0 place-items-center rounded-xl text-[var(--ink)] transition-colors duration-500" style={{ backgroundColor: accent }}>
-                <Sparkles className="size-4" aria-hidden="true" />
+              <span className="grid size-10 shrink-0 place-items-center rounded-xl border border-white/10 bg-white/[.055] p-1.5 shadow-[inset_0_0_18px_rgba(255,255,255,.04)]">
+                <Image src="/Alviro-Tech-Logo-White.png" alt="" width={937} height={823} priority className="h-full w-full object-contain" />
               </span>
               <span className="min-w-0">
                 <span className="display-type block text-base leading-none text-white sm:text-lg">Alviro Tech</span>
