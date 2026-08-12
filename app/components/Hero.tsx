@@ -77,8 +77,21 @@ export default function Hero() {
                   <div className="grid size-12 place-items-center rounded-2xl bg-[var(--acid)] text-[var(--ink)]"><TrendingUp className="size-5" /></div>
                 </div>
                 <div className="relative mt-8 h-32 overflow-hidden rounded-2xl border border-white/10 bg-black/20 p-4">
-                  <div className="absolute inset-x-4 bottom-4 flex h-20 items-end gap-2" aria-hidden="true">
-                    {[34, 48, 42, 68, 58, 76, 87, 95].map((height, index) => <motion.span key={`${height}-${index}`} initial={reduceMotion ? false : { height: 0 }} animate={{ height: `${height}%` }} transition={{ delay: 0.7 + index * 0.07, duration: 0.65 }} className="flex-1 rounded-t-sm bg-gradient-to-t from-[var(--cyan)]/35 to-[var(--acid)]" />)}
+                  <div className="growth-bars absolute inset-x-4 bottom-4 flex h-20 items-end gap-2" aria-hidden="true">
+                    {[34, 48, 42, 68, 58, 76, 87, 95].map((height, index) => (
+                      <motion.span
+                        key={`${height}-${index}`}
+                        initial={reduceMotion ? false : { height: 0 }}
+                        animate={{ height: `${height}%` }}
+                        whileHover={reduceMotion ? undefined : { y: -8, scaleY: 1.18 }}
+                        transition={{
+                          height: { delay: 0.7 + index * 0.07, duration: 0.65 },
+                          y: { type: "spring", stiffness: 250, damping: 18 },
+                          scaleY: { type: "spring", stiffness: 210, damping: 16 },
+                        }}
+                        className="growth-bar flex-1 rounded-t-sm bg-gradient-to-t from-[var(--cyan)]/35 to-[var(--acid)]"
+                      />
+                    ))}
                   </div>
                 </div>
                 <div className="mt-5 grid grid-cols-2 gap-3">
@@ -95,7 +108,7 @@ export default function Hero() {
         </div>
 
         <motion.div initial={reduceMotion ? false : { opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1, duration: 0.7 }} className="mt-16 grid grid-cols-3 border-y border-white/10 lg:mt-20 lg:max-w-3xl">
-          {[["100+", "Projects completed"], ["06", "Growth disciplines"], ["24/7", "Delivery support"]].map(([value, label], index) => <div key={label} className={`py-5 ${index ? "border-l border-white/10 pl-5 sm:pl-8" : "pr-4"}`}><p className="display-type text-2xl text-white sm:text-3xl">{value}</p><p className="mono-type mt-1 text-[8px] font-bold uppercase tracking-[.14em] text-white/38 sm:text-[9px]">{label}</p></div>)}
+          {[["100+", "Projects completed"], ["08", "Growth disciplines"], ["24/7", "Delivery support"]].map(([value, label], index) => <div key={label} className={`py-5 ${index ? "border-l border-white/10 pl-5 sm:pl-8" : "pr-4"}`}><p className="display-type text-2xl text-white sm:text-3xl">{value}</p><p className="mono-type mt-1 text-[8px] font-bold uppercase tracking-[.14em] text-white/38 sm:text-[9px]">{label}</p></div>)}
         </motion.div>
       </div>
     </section>

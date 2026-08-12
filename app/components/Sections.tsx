@@ -2,10 +2,10 @@
 
 import type { CSSProperties } from "react";
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowUpRight, BarChart3, Layers3, MessageCircle, MousePointer2, Quote, Search, ShieldCheck, Sparkles } from "lucide-react";
+import { ArrowUpRight, BarChart3, BrainCircuit, Layers3, MessageCircle, MousePointer2, Palette, Quote, Search, ShieldCheck, UserRound } from "lucide-react";
 import { PROCESS, SERVICES, TESTIMONIALS } from "../data";
 
-const SERVICE_ICONS = [Layers3, BarChart3, Search, MessageCircle, MousePointer2, Sparkles];
+const SERVICE_ICONS = [BrainCircuit, UserRound, Layers3, BarChart3, Search, MessageCircle, MousePointer2, Palette];
 
 const reveal = {
   hidden: { opacity: 0, y: 28 },

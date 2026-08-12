@@ -9,6 +9,28 @@ export const NAV_LINKS = [
 export const SERVICES = [
   {
     number: "01",
+    title: "Artificial intelligence solutions",
+    shortTitle: "AI acceleration",
+    description:
+      "Practical AI systems that automate repetitive work, improve customer journeys, and turn business data into faster decisions.",
+    detail:
+      "From intelligent assistants and workflow automation to knowledge search and AI-enabled products, we design around measurable business value—not novelty.",
+    tags: ["AI strategy", "Automation", "AI products"],
+    accent: "var(--acid)",
+  },
+  {
+    number: "02",
+    title: "Personal branding",
+    shortTitle: "Founder authority",
+    description:
+      "Positioning and content systems that make founders, executives, and experts easier to recognize, remember, and trust.",
+    detail:
+      "We connect narrative, visual identity, platform strategy, and a repeatable publishing rhythm into a credible personal brand that supports commercial growth.",
+    tags: ["Positioning", "LinkedIn", "Content system"],
+    accent: "var(--cyan)",
+  },
+  {
+    number: "03",
     title: "Website design & development",
     shortTitle: "Web experiences",
     description:
@@ -16,10 +38,10 @@ export const SERVICES = [
     detail:
       "From conversion-led landing pages to custom business platforms, every build pairs precise interaction design with clean, scalable engineering.",
     tags: ["UX strategy", "Next.js", "Conversion"],
-    accent: "var(--cyan)",
+    accent: "var(--violet)",
   },
   {
-    number: "02",
+    number: "04",
     title: "Performance marketing",
     shortTitle: "Paid growth",
     description:
@@ -27,10 +49,10 @@ export const SERVICES = [
     detail:
       "We combine audience intelligence, sharp creative, disciplined experimentation, and live optimization to improve acquisition efficiency.",
     tags: ["Google Ads", "Meta Ads", "ROAS"],
-    accent: "var(--acid)",
+    accent: "#f7c873",
   },
   {
-    number: "03",
+    number: "05",
     title: "Search engine optimization",
     shortTitle: "Organic authority",
     description:
@@ -38,10 +60,10 @@ export const SERVICES = [
     detail:
       "Search intent, technical health, content architecture, and authority-building are connected into one transparent growth program.",
     tags: ["Technical SEO", "Content", "Authority"],
-    accent: "var(--violet)",
+    accent: "#ff8fab",
   },
   {
-    number: "04",
+    number: "06",
     title: "Social media marketing",
     shortTitle: "Social momentum",
     description:
@@ -52,7 +74,7 @@ export const SERVICES = [
     accent: "#ff9a76",
   },
   {
-    number: "05",
+    number: "07",
     title: "E-commerce & CRO",
     shortTitle: "Revenue systems",
     description:
@@ -63,15 +85,15 @@ export const SERVICES = [
     accent: "#ff8fab",
   },
   {
-    number: "06",
-    title: "Branding & personal authority",
-    shortTitle: "Distinctive brands",
+    number: "08",
+    title: "Branding & creative",
+    shortTitle: "Brand systems",
     description:
-      "Strategic identities and founder-led content systems that make expertise easier to recognize and trust.",
+      "Distinctive identities and campaign creative that make ambitious businesses easier to recognize and trust.",
     detail:
-      "Positioning, voice, identity, and practical brand assets come together in a system your team can use consistently.",
-    tags: ["Positioning", "Identity", "LinkedIn"],
-    accent: "#f7c873",
+      "Positioning, voice, identity, and practical brand assets come together in a flexible system your team can use consistently across every channel.",
+    tags: ["Brand strategy", "Identity", "Creative"],
+    accent: "#63e6ff",
   },
 ] as const;
 
