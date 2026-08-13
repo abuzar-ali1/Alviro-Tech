@@ -155,13 +155,16 @@ section { scroll-margin-top: 84px; }
 .project-glow::before { position: absolute; inset: -1px; z-index: -1; border-radius: inherit; content: ""; opacity: 0; background: linear-gradient(120deg, var(--cyan), transparent 35%, transparent 65%, var(--acid)); transition: opacity .45s ease; }
 .project-glow:hover::before { opacity: .7; }
 
-.growth-bar {
-  cursor: pointer;
-  transform-origin: bottom;
-  will-change: transform, height;
-  box-shadow: 0 0 18px rgba(200,255,90,.1);
+.marketing-aurora {
+  background: conic-gradient(from 90deg at 50% 50%, rgba(99,230,255,.12), transparent 26%, rgba(167,139,250,.11), transparent 58%, rgba(200,255,90,.1), transparent 84%);
+  filter: blur(45px);
+  animation: marketing-aurora 14s linear infinite;
 }
-.growth-bar:hover { box-shadow: 0 0 24px rgba(200,255,90,.3); }
+.marketing-orbit-ring { animation: marketing-orbit 20s linear infinite; }
+.marketing-orbit-ring-reverse { animation-direction: reverse; animation-duration: 13s; }
+.marketing-core-pulse { animation: marketing-core 2.4s ease-in-out infinite; }
+.growth-flow { overflow: hidden; }
+.growth-flow-signal { left: 3%; animation: growth-flow 3.4s cubic-bezier(.45,0,.55,1) infinite; }
 
 .dust-cursor { display: none; }
 @media (hover: hover) and (pointer: fine) {
@@ -203,6 +206,10 @@ section { scroll-margin-top: 84px; }
 @keyframes brand-marquee { to { transform: translateX(-50%); } }
 @keyframes float { 0%,100% { transform: translate3d(0,0,0) rotate(-2deg); } 50% { transform: translate3d(0,-12px,0) rotate(2deg); } }
 @keyframes breathe { 0%,100% { opacity: .5; transform: scale(.96); } 50% { opacity: .9; transform: scale(1.06); } }
+@keyframes marketing-orbit { to { transform: rotate(360deg); } }
+@keyframes marketing-aurora { to { transform: rotate(360deg) scale(1.05); } }
+@keyframes marketing-core { 0%,100% { opacity: .42; transform: scale(.82); } 50% { opacity: .9; transform: scale(1.18); } }
+@keyframes growth-flow { 0% { left: 3%; opacity: 0; } 12% { opacity: 1; } 88% { opacity: 1; } 100% { left: 95%; opacity: 0; } }
 
 @media (min-width: 768px) { .site-container { width: min(100% - 4rem, 84rem); } }
 @media (min-width: 1024px) { .service-card { position: sticky; top: var(--service-top, 7rem); } }
