@@ -2,10 +2,26 @@
 
 import type { CSSProperties } from "react";
 import { motion, useReducedMotion } from "framer-motion";
+import Image from "next/image";
 import { ArrowUpRight, BarChart3, BrainCircuit, Layers3, MessageCircle, MousePointer2, Palette, Quote, Search, ShieldCheck, UserRound } from "lucide-react";
 import { PROCESS, SERVICES, TESTIMONIALS } from "../data";
 
 const SERVICE_ICONS = [BrainCircuit, UserRound, Layers3, BarChart3, Search, MessageCircle, MousePointer2, Palette];
+
+const BRANDS = [
+  { name: "Bata", src: "/bata_logo-1.png", accent: "#ff515d" },
+  { name: "Eccountant", src: "/eccountant_logo.png", accent: "#63e6ff" },
+  { name: "Hitech", src: "/hitech_logo.png", accent: "#ff725e" },
+  { name: "Innovent", src: "/innovent_logo.png", accent: "#a78bfa" },
+  { name: "Maskni", src: "/maskni_logo.png", accent: "#f7c873" },
+  { name: "Shiza", src: "/shiza_logo.png", accent: "#d64be8" },
+] as const;
+
+const RESULT_SIGNALS = [
+  { accent: "#c8ff5a", label: "Workflow clarity", initials: "FA" },
+  { accent: "#63e6ff", label: "Strategic delivery", initials: "JW" },
+  { accent: "#a78bfa", label: "Built to scale", initials: "DC" },
+] as const;
 
 const reveal = {
   hidden: { opacity: 0, y: 28 },
@@ -13,18 +29,35 @@ const reveal = {
 };
 
 export function BrandRail() {
-  const brands = ["Bata", "Hitech", "Maskni", "Eccountant", "Shiza", "Innovent"];
   return (
-    <div className="overflow-hidden border-y border-white/10 bg-white/[.025] py-4">
-      <div className="marquee-track flex items-center gap-9 pr-9">
-        {[...brands, ...brands].map((brand, index) => (
-          <div key={`${brand}-${index}`} className="flex items-center gap-9">
-            <span className="mono-type text-[10px] font-bold uppercase tracking-[.22em] text-white/42">{brand}</span>
-            <span className="size-1 rounded-full bg-[var(--acid)]/65" aria-hidden="true" />
-          </div>
-        ))}
+    <section className="brand-rail-shell relative border-y border-white/10 bg-white/[.025] py-5 sm:py-6" aria-label="Brands Alviro Tech has supported">
+      <div className="brand-rail-window">
+        <div className="brand-logo-track">
+          {[0, 1].map((copy) => (
+            <ul key={copy} className="flex shrink-0 gap-3 pr-3 sm:gap-4 sm:pr-4" aria-hidden={copy === 1}>
+              {BRANDS.map((brand) => (
+                <li
+                  key={`${copy}-${brand.name}`}
+                  className="brand-logo-card group relative grid h-[5.25rem] w-[10.5rem] shrink-0 place-items-center overflow-hidden rounded-[1.2rem] border border-white/10 bg-[#f8f8f3] px-5 shadow-[0_18px_50px_rgba(0,0,0,.2)] sm:h-[6.25rem] sm:w-[13.5rem] sm:rounded-[1.4rem] sm:px-7"
+                  style={{ "--brand-accent": brand.accent } as CSSProperties}
+                >
+                  <span className="absolute inset-x-0 top-0 h-[3px] origin-left scale-x-0 bg-[var(--brand-accent)] transition-transform duration-500 group-hover:scale-x-100" aria-hidden="true" />
+                  <span className="absolute right-3 top-3 size-1.5 rounded-full bg-[var(--brand-accent)] opacity-45 transition duration-500 group-hover:scale-150 group-hover:opacity-100" aria-hidden="true" />
+                  <Image
+                    src={brand.src}
+                    alt={`${brand.name} logo`}
+                    width={774}
+                    height={280}
+                    sizes="(max-width: 640px) 168px, 216px"
+                    className="h-auto max-h-[3.25rem] w-full object-contain opacity-75 saturate-[.72] transition duration-500 group-hover:scale-[1.04] group-hover:opacity-100 group-hover:saturate-100 sm:max-h-[3.75rem]"
+                  />
+                </li>
+              ))}
+            </ul>
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 }
 
@@ -110,12 +143,52 @@ export function Results() {
           <div><p className="eyebrow mb-6 text-[#f7c873]">04 / Client signal</p><h2 className="display-type max-w-5xl text-[clamp(3.5rem,8.7vw,8rem)] leading-[.84] text-white">Built for real<span className="text-gradient block">business impact.</span></h2></div>
           <div className="rounded-3xl border border-white/10 bg-white/[.035] p-6"><div className="flex items-center gap-3 text-[var(--acid)]"><ShieldCheck className="size-5" /><span className="mono-type text-[10px] font-bold uppercase tracking-[.16em]">Execution over theatre</span></div><p className="mt-4 text-sm leading-7 text-[var(--muted)]">Systems that improve visibility, speed, control, and long-term scalability.</p></div>
         </motion.header>
-        <div className="grid gap-5 lg:grid-cols-3">
-          {TESTIMONIALS.map((item, index) => (
-            <motion.figure key={item.name} initial={reduceMotion ? false : { opacity: 0, y: 34 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.25 }} transition={{ duration: 0.7, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }} className="glass-panel flex min-h-[25rem] flex-col rounded-[1.75rem] p-6 sm:p-8">
-              <Quote className="size-9 text-[var(--cyan)]" /><blockquote className="display-type mt-9 text-balance text-2xl leading-[1.06] text-white sm:text-3xl">“{item.quote}”</blockquote><figcaption className="mt-auto border-t border-white/10 pt-6"><p className="font-black text-white">{item.name}</p><p className="mono-type mt-2 text-[9px] uppercase tracking-[.13em] text-white/36">{item.role}</p></figcaption>
-            </motion.figure>
-          ))}
+        <div className="grid gap-5 lg:grid-cols-12 lg:grid-rows-2">
+          {TESTIMONIALS.map((item, index) => {
+            const signal = RESULT_SIGNALS[index];
+            const isFeatured = index === 0;
+            return (
+              <motion.figure
+                key={item.name}
+                initial={reduceMotion ? false : { opacity: 0, y: 34 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                whileHover={reduceMotion ? undefined : { y: -6 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.7, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
+                className={`result-card group relative isolate flex overflow-hidden rounded-[1.75rem] border border-white/10 bg-[#10161d]/90 p-6 shadow-[0_28px_90px_rgba(0,0,0,.3)] sm:p-8 ${isFeatured ? "min-h-[31rem] lg:col-span-7 lg:row-span-2 lg:min-h-[39rem] lg:p-10" : "min-h-[22rem] lg:col-span-5"}`}
+                style={{ "--result-accent": signal.accent } as CSSProperties}
+              >
+                <div className="result-card-halo absolute -right-16 -top-20 size-64 rounded-full bg-[var(--result-accent)] opacity-[.09] blur-[75px] transition duration-700 group-hover:scale-125 group-hover:opacity-[.17]" aria-hidden="true" />
+                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[var(--result-accent)] to-transparent opacity-75" aria-hidden="true" />
+                <div className="relative flex w-full flex-col">
+                  <div className="flex items-center justify-between gap-5">
+                    <span className="mono-type rounded-full border border-white/10 bg-white/[.045] px-3 py-2 text-[9px] font-bold uppercase tracking-[.16em] text-white/50">Client story / 0{index + 1}</span>
+                    <span className="grid size-11 place-items-center rounded-2xl border border-white/10 bg-white/[.045]" aria-hidden="true">
+                      <Quote className="size-5 text-[var(--result-accent)]" />
+                    </span>
+                  </div>
+
+                  <blockquote className={`display-type text-balance text-white ${isFeatured ? "mt-14 max-w-3xl text-[clamp(2.15rem,4vw,4.15rem)] leading-[.96]" : "mt-8 text-[clamp(1.55rem,2.25vw,2.15rem)] leading-[1.04]"}`}>
+                    “{item.quote}”
+                  </blockquote>
+
+                  <figcaption className="mt-auto pt-10">
+                    <div className="mb-6 flex items-center gap-2">
+                      <span className="h-px w-7 bg-[var(--result-accent)]" aria-hidden="true" />
+                      <span className="mono-type text-[9px] font-bold uppercase tracking-[.16em] text-[var(--result-accent)]">{signal.label}</span>
+                    </div>
+                    <div className="flex items-center gap-4 border-t border-white/10 pt-5">
+                      <span className="grid size-11 shrink-0 place-items-center rounded-full bg-[var(--result-accent)] text-[11px] font-black tracking-[.08em] text-[var(--ink)] shadow-[0_0_28px_color-mix(in_srgb,var(--result-accent)_25%,transparent)]">{signal.initials}</span>
+                      <span className="min-w-0">
+                        <span className="block font-black text-white">{item.name}</span>
+                        <span className="mono-type mt-1.5 block text-[9px] uppercase leading-5 tracking-[.1em] text-white/38">{item.role}</span>
+                      </span>
+                    </div>
+                  </figcaption>
+                </div>
+              </motion.figure>
+            );
+          })}
         </div>
       </div>
       <div className="mt-20"><p className="mono-type site-container mb-5 text-[9px] font-bold uppercase tracking-[.2em] text-white/28">Brands we have supported</p><BrandRail /></div>
