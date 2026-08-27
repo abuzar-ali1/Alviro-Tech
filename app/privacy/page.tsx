@@ -47,7 +47,7 @@ export default function PrivacyPage() {
               <Image src="/Alviro-Tech-Logo-Black.png" alt="" width={937} height={823} priority className="h-full w-full object-contain" />
             </span>
             <span>
-              <span className="display-type block text-base leading-none text-white sm:text-lg">Alviro Tech</span>
+              <span className="display-type block text-[15px] leading-none text-white sm:text-[17px]">Alviro Tech</span>
               <span className="mono-type mt-1 block text-[8px] font-bold uppercase tracking-[.2em] text-[var(--muted)]">Digital growth systems</span>
             </span>
           </Link>
@@ -65,11 +65,11 @@ export default function PrivacyPage() {
         <div className="site-container relative">
           <div className="max-w-4xl">
             <p className="eyebrow text-[var(--acid)]">Legal / Privacy</p>
-            <h1 className="display-type mt-7 text-balance text-[clamp(2.8rem,5.4vw,5rem)] leading-[.9]">
+            <h1 className="display-type mt-7 text-balance text-[clamp(2.35rem,4.6vw,4.25rem)] leading-[.94]">
               Privacy without
               <span className="text-gradient block">the small-print maze.</span>
             </h1>
-            <p className="mt-7 max-w-2xl text-base leading-7 text-white/58">
+            <p className="mt-7 max-w-2xl text-[15px] leading-7 text-white/58">
               This policy explains what information Alviro Tech handles through this website, why we use it, and the choices available to you.
             </p>
             <p className="mono-type mt-4 text-[10px] font-bold uppercase tracking-[.16em] text-white/35">Last updated: August 27, 2026</p>
@@ -80,7 +80,7 @@ export default function PrivacyPage() {
               <section key={section.title} className="rounded-[1.5rem] border border-white/10 bg-white/[.035] p-6 backdrop-blur-sm sm:p-7">
                 <div className="flex items-center gap-3">
                   <span className="mono-type text-[10px] font-bold text-[var(--cyan)]">0{index + 1}</span>
-                  <h2 className="display-type text-xl sm:text-2xl">{section.title}</h2>
+                  <h2 className="display-type text-[19px] sm:text-[22px]">{section.title}</h2>
                 </div>
                 <p className="mt-4 text-sm leading-7 text-white/58">{section.body}</p>
               </section>
@@ -91,7 +91,7 @@ export default function PrivacyPage() {
             <div>
               <div className="flex items-center gap-3 text-[var(--acid)]">
                 <ShieldCheck className="size-5" />
-                <h2 className="display-type text-xl sm:text-2xl">Questions or privacy requests?</h2>
+                <h2 className="display-type text-[19px] sm:text-[22px]">Questions or privacy requests?</h2>
               </div>
               <p className="mt-3 max-w-2xl text-sm leading-7 text-white/58">Contact us and we will respond as clearly and promptly as possible.</p>
             </div>

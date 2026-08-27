@@ -78,7 +78,7 @@ export function ContactSection() {
   return (
     <section
       id="contact"
-      className="relative overflow-hidden bg-[var(--ink-soft)] py-20 sm:py-24"
+      className="relative overflow-hidden bg-[var(--ink-soft)] py-24 sm:py-32"
     >
       <div
         className="grid-field absolute inset-0 opacity-45"
@@ -98,16 +98,16 @@ export function ContactSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.72, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-12 grid gap-8 lg:mb-16 lg:grid-cols-[1fr_25rem] lg:items-end"
+          className="mb-14 grid gap-8 lg:mb-20 lg:grid-cols-[1fr_25rem] lg:items-end"
         >
           <div>
             <p className="eyebrow mb-6 text-[#ff8fab]">05 / Open channel</p>
-            <h2 className="display-type max-w-5xl text-[clamp(2.9rem,6.4vw,5.8rem)] leading-[.87] text-white">
+            <h2 className="display-type max-w-5xl text-[clamp(2.35rem,5.4vw,4.9rem)] leading-[.92] text-white">
               Bring us the
               <span className="text-gradient block">growth problem.</span>
             </h2>
           </div>
-          <p className="border-l border-[#ff8fab] pl-5 text-base leading-7 text-[var(--muted)] sm:text-lg">
+          <p className="border-l border-[#ff8fab] pl-5 text-[15px] leading-7 text-[var(--muted)] sm:text-[17px]">
             Tell us where you are, where you want to go, and what is getting in
             the way. We will map the clearest next move.
           </p>
@@ -126,7 +126,7 @@ export function ContactSection() {
                 <p className="mono-type text-[.65rem] font-bold uppercase tracking-[.18em] text-[var(--cyan)]">
                   Free consultation
                 </p>
-                <h3 className="display-type mt-2 text-2xl text-white sm:text-3xl">
+                <h3 className="display-type mt-2 text-[1.4rem] text-white sm:text-[1.75rem]">
                   Start the brief.
                 </h3>
               </div>
@@ -251,10 +251,10 @@ export function ContactSection() {
                   <span className="relative inline-flex size-3 rounded-full bg-[var(--ink)]" />
                 </span>
               </div>
-              <p className="display-type max-w-sm text-3xl leading-[.98] sm:text-4xl">
+              <p className="display-type max-w-sm text-[1.75rem] leading-[1.02] sm:text-[2.15rem]">
                 Booking select partnerships.
               </p>
-              <p className="mt-5 max-w-sm text-sm font-medium leading-6 text-black/62">
+              <p className="mt-5 max-w-sm text-[13px] font-medium leading-6 text-black/62">
                 Best fit: ambitious businesses ready to connect strategy,
                 creative, and technology into one measurable growth system.
               </p>
@@ -290,7 +290,7 @@ export function ContactSection() {
                         <span className="mono-type block text-[.58rem] font-bold uppercase tracking-[.16em] text-white/35">
                           {item.label}
                         </span>
-                        <span className="mt-1 block break-words text-sm font-semibold text-white sm:text-base">
+                        <span className="mt-1 block break-words text-[13px] font-semibold text-white sm:text-[15px]">
                           {item.value}
                         </span>
                       </span>
@@ -334,17 +334,17 @@ export function ContactSection() {
 export function Footer() {
   return (
     <footer className="relative overflow-hidden border-t border-white/10 bg-[var(--ink)] text-white">
-      <div className="site-container py-14 sm:py-16">
+      <div className="site-container py-16 sm:py-20">
         <div className="grid gap-12 border-b border-white/10 pb-14 lg:grid-cols-[1.4fr_.6fr] lg:items-end lg:gap-20 lg:pb-20">
           <div>
             <p className="eyebrow text-[var(--acid)]">Ready when you are</p>
-            <h2 className="display-type mt-6 max-w-4xl text-[clamp(2.5rem,5.5vw,5rem)] leading-[.9]">
+            <h2 className="display-type mt-6 max-w-4xl text-[clamp(2.2rem,4.6vw,4.25rem)] leading-[.94]">
               Stop guessing.
               <span className="text-gradient block">Start scaling.</span>
             </h2>
           </div>
           <div>
-            <p className="text-sm leading-7 text-[var(--muted)] sm:text-base">
+            <p className="text-[13px] leading-7 text-[var(--muted)] sm:text-[15px]">
               Build smarter systems, automate operations, and grow faster with
               Alviro Tech.
             </p>
@@ -368,13 +368,13 @@ export function Footer() {
                 />
               </span>
               <div>
-                <p className="display-type text-xl">Alviro Tech</p>
+                <p className="display-type text-[18px]">Alviro Tech</p>
                 <p className="mono-type mt-1 text-[9px] uppercase tracking-[.18em] text-[var(--muted)]">
                   Digital growth systems
                 </p>
               </div>
             </div>
-            <p className="mt-6 max-w-sm text-sm leading-7 text-[var(--muted)]">
+            <p className="mt-6 max-w-sm text-[13px] leading-7 text-[var(--muted)]">
               A results-driven digital agency helping ambitious businesses grow
               through strategy, design, technology, and performance marketing.
             </p>
@@ -388,7 +388,7 @@ export function Footer() {
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className="group inline-flex items-center gap-2 text-sm font-semibold text-white/70 hover:text-[var(--acid)]"
+                    className="group inline-flex items-center gap-2 text-[13px] font-semibold text-white/70 hover:text-[var(--acid)]"
                   >
                     <span className="h-px w-0 bg-[var(--acid)] transition-all group-hover:w-4" />
                     {link.name}
@@ -403,7 +403,7 @@ export function Footer() {
             </p>
             <a
               href={`mailto:${CONTACT.email}`}
-              className="text-sm font-semibold text-white/75 hover:text-[var(--acid)]"
+              className="text-[13px] font-semibold text-white/75 hover:text-[var(--acid)]"
             >
               {CONTACT.email}
             </a>

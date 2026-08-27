@@ -116,7 +116,7 @@ export default function Navigation() {
                 <Image src="/Alviro-Tech-Logo-Black.png" alt="" width={937} height={823} priority className="h-full w-full object-contain" />
               </span>
               <span className="min-w-0">
-                <span className="display-type block text-base leading-none text-white sm:text-lg">Alviro Tech</span>
+                <span className="display-type block text-[15px] leading-none text-white sm:text-[17px]">Alviro Tech</span>
                 <span className="mono-type mt-1 block truncate text-[8px] font-bold uppercase tracking-[.2em] text-[var(--muted)] sm:text-[9px]">Digital growth systems</span>
               </span>
             </a>
@@ -158,7 +158,7 @@ export default function Navigation() {
                   {NAV_LINKS.map((link, index) => {
                     const isActive = active === link.href;
                     return (
-                      <a key={link.href} href={link.href} onClick={(event) => navigate(event, link.href)} aria-current={isActive ? "location" : undefined} className="flex items-center justify-between rounded-xl px-4 py-3 text-sm font-bold hover:bg-white/[.05]" style={{ backgroundColor: isActive ? ACCENTS[link.href] : "transparent", color: isActive ? "#06080b" : "#ffffff" }}>
+                      <a key={link.href} href={link.href} onClick={(event) => navigate(event, link.href)} aria-current={isActive ? "location" : undefined} className="flex items-center justify-between rounded-xl px-4 py-3 text-[13px] font-bold hover:bg-white/[.05]" style={{ backgroundColor: isActive ? ACCENTS[link.href] : "transparent", color: isActive ? "#06080b" : "#ffffff" }}>
                         {link.name}<span className="mono-type text-[10px] opacity-60">0{index + 1}</span>
                       </a>
                     );

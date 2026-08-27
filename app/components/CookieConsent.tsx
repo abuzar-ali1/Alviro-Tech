@@ -101,11 +101,11 @@ export default function CookieConsent() {
             <div>
               <div className="flex items-center gap-2.5">
                 <ShieldCheck className="size-4 text-[var(--acid)]" aria-hidden="true" />
-                <h2 id="cookie-consent-title" className="display-type text-lg text-white sm:text-xl">
+                <h2 id="cookie-consent-title" className="display-type text-[17px] text-white sm:text-[18px]">
                   Your privacy, your choice.
                 </h2>
               </div>
-              <p id="cookie-consent-description" className="mt-2 max-w-3xl text-[13px] leading-6 text-white/58 sm:text-sm">
+              <p id="cookie-consent-description" className="mt-2 max-w-3xl text-[13px] leading-6 text-white/58 sm:text-[13px]">
                 We use essential browser storage to remember your preferences. With your permission, optional analytics may help us improve the experience. You can change this choice at any time in the footer.
               </p>
               <div className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1 text-[11px] font-semibold text-white/42">

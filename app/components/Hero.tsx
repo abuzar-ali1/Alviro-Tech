@@ -39,7 +39,7 @@ export default function Hero() {
   }, [orbitPaused, reduceMotion]);
 
   return (
-    <section ref={sectionRef} id="home" className="relative flex min-h-[100svh] items-center overflow-hidden bg-[var(--ink)] pb-12 pt-24 sm:pt-28 lg:pb-14">
+    <section ref={sectionRef} id="home" className="relative flex min-h-[100svh] items-center overflow-hidden bg-[var(--ink)] pb-14 pt-28 sm:pt-32 lg:pb-18">
       <div className="grid-field absolute inset-0 opacity-60" aria-hidden="true" />
       <div className="orb absolute -left-40 top-[6%] size-[28rem] rounded-full bg-[var(--violet)]/16 blur-[120px]" aria-hidden="true" />
       <div className="orb absolute -right-40 top-[18%] size-[36rem] rounded-full bg-[var(--cyan)]/14 blur-[140px] [animation-delay:1.2s]" aria-hidden="true" />
@@ -57,7 +57,7 @@ export default function Hero() {
               </span>
             </motion.div>
 
-            <h1 className="display-type text-balance text-[clamp(3.1rem,6.8vw,6.2rem)] leading-[.84] text-white">
+            <h1 className="display-type text-balance text-[clamp(2.75rem,6vw,5.3rem)] leading-[.88] text-white">
               <span className="hero-line block overflow-hidden pb-[.08em]"><span className="block">We build</span></span>
               <span className="hero-line hero-line-delay block overflow-hidden pb-[.09em]"><span className="text-gradient block">digital</span></span>
               <span className="hero-line hero-line-late block overflow-hidden pb-[.1em]"><span className="block">growth.</span></span>
@@ -65,7 +65,7 @@ export default function Hero() {
 
             <motion.div initial={reduceMotion ? false : { opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.65, duration: 0.7 }} className="mt-8 grid gap-8 border-t border-white/10 pt-7 sm:grid-cols-[1fr_auto] sm:items-end">
               <div>
-                <p className="text-pretty max-w-xl text-base leading-7 text-white/58 sm:text-lg">We turn ambitious ideas into high-performance websites, campaigns, and revenue systems—built to scale without the guesswork.</p>
+                <p className="text-pretty max-w-xl text-[15px] leading-7 text-white/58 sm:text-[17px]">We turn ambitious ideas into high-performance websites, campaigns, and revenue systems—built to scale without the guesswork.</p>
                 <div className="mt-5 flex h-8 items-center gap-3 text-sm font-bold text-white/86">
                   <span className="grid size-7 place-items-center rounded-full border border-white/10 bg-white/[.04] text-[var(--cyan)]"><Zap className="size-3.5" /></span>
                   <span>Engineering better</span>
@@ -96,7 +96,7 @@ export default function Hero() {
                 <div className="mt-5 flex items-start justify-between gap-5">
                   <div>
                     <p className="mono-type text-[9px] font-bold uppercase tracking-[.18em] text-[var(--cyan)]">Connected digital growth</p>
-                    <h2 className="display-type mt-2 max-w-[18rem] text-[1.8rem] leading-[.92] text-white sm:text-[2.25rem]">Every channel.<br /><span className="text-gradient">One engine.</span></h2>
+                    <h2 className="display-type mt-2 max-w-[18rem] text-[1.7rem] leading-[.94] text-white sm:text-[2.1rem]">Every channel.<br /><span className="text-gradient">One engine.</span></h2>
                   </div>
                   <motion.span animate={reduceMotion ? undefined : { rotate: [0, 10, -5, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }} className="grid size-11 shrink-0 place-items-center rounded-2xl bg-[var(--acid)] text-[var(--ink)] shadow-[0_0_34px_rgba(200,255,90,.28)] sm:size-12"><MousePointerClick className="size-5" /></motion.span>
                 </div>
@@ -119,7 +119,7 @@ export default function Hero() {
                     <p className="mono-type mt-3 text-[7px] font-bold uppercase tracking-[.18em] text-white/32">Now optimizing</p>
                     <AnimatePresence mode="wait">
                       <motion.div key={CHANNELS[activeChannel].name} initial={reduceMotion ? false : { opacity: 0, y: 7, filter: "blur(5px)" }} animate={{ opacity: 1, y: 0, filter: "blur(0px)" }} exit={{ opacity: 0, y: -7, filter: "blur(5px)" }} transition={{ duration: 0.32 }}>
-                        <p className="mt-1 text-sm font-black text-white sm:text-base">{CHANNELS[activeChannel].name}</p>
+                        <p className="mt-1 text-[13px] font-black text-white sm:text-[15px]">{CHANNELS[activeChannel].name}</p>
                         <p className="mt-0.5 text-[9px] text-white/38">{CHANNELS[activeChannel].detail}</p>
                       </motion.div>
                     </AnimatePresence>
@@ -156,8 +156,8 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        <motion.div initial={reduceMotion ? false : { opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1, duration: 0.7 }} className="mt-12 grid grid-cols-3 border-y border-white/10 lg:mt-16 lg:max-w-3xl">
-          {[["100+", "Projects completed"], ["08", "Growth disciplines"], ["24/7", "Delivery support"]].map(([value, label], index) => <div key={label} className={`py-5 ${index ? "border-l border-white/10 pl-5 sm:pl-8" : "pr-4"}`}><p className="display-type text-2xl text-white sm:text-3xl">{value}</p><p className="mono-type mt-1 text-[8px] font-bold uppercase tracking-[.14em] text-white/38 sm:text-[9px]">{label}</p></div>)}
+        <motion.div initial={reduceMotion ? false : { opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1, duration: 0.7 }} className="mt-16 grid grid-cols-3 border-y border-white/10 lg:mt-20 lg:max-w-3xl">
+          {[["100+", "Projects completed"], ["08", "Growth disciplines"], ["24/7", "Delivery support"]].map(([value, label], index) => <div key={label} className={`py-5 ${index ? "border-l border-white/10 pl-5 sm:pl-8" : "pr-4"}`}><p className="display-type text-[1.4rem] text-white sm:text-[1.75rem]">{value}</p><p className="mono-type mt-1 text-[8px] font-bold uppercase tracking-[.14em] text-white/38 sm:text-[9px]">{label}</p></div>)}
         </motion.div>
       </div>
     </section>
