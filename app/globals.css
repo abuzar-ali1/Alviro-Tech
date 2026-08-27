@@ -150,6 +150,19 @@ section { scroll-margin-top: 84px; }
   border-color: color-mix(in srgb, var(--result-accent) 38%, transparent);
   box-shadow: 0 34px 100px rgba(0,0,0,.42), 0 0 55px color-mix(in srgb, var(--result-accent) 8%, transparent);
 }
+.testimonial-marquee {
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent, black 4%, black 96%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, black 4%, black 96%, transparent);
+}
+.testimonial-track {
+  display: flex;
+  width: max-content;
+  animation: testimonial-marquee 52s linear infinite;
+  will-change: transform;
+}
+.testimonial-marquee:hover .testimonial-track,
+.testimonial-marquee:focus-within .testimonial-track { animation-play-state: paused; }
 .orb { filter: blur(2px); animation: breathe 7s ease-in-out infinite; }
 .float-slow { animation: float 6s ease-in-out infinite; }
 .project-glow::before { position: absolute; inset: -1px; z-index: -1; border-radius: inherit; content: ""; opacity: 0; background: linear-gradient(120deg, var(--cyan), transparent 35%, transparent 65%, var(--acid)); transition: opacity .45s ease; }
@@ -204,6 +217,7 @@ section { scroll-margin-top: 84px; }
 
 @keyframes word-in { from { transform: translateY(115%) rotate(2deg); } to { transform: translateY(0) rotate(0); } }
 @keyframes brand-marquee { to { transform: translateX(-50%); } }
+@keyframes testimonial-marquee { to { transform: translateX(-50%); } }
 @keyframes float { 0%,100% { transform: translate3d(0,0,0) rotate(-2deg); } 50% { transform: translate3d(0,-12px,0) rotate(2deg); } }
 @keyframes breathe { 0%,100% { opacity: .5; transform: scale(.96); } 50% { opacity: .9; transform: scale(1.06); } }
 @keyframes marketing-orbit { to { transform: rotate(360deg); } }
@@ -226,5 +240,8 @@ section { scroll-margin-top: 84px; }
   .service-card { position: relative !important; top: auto !important; }
   .brand-rail-window { overflow-x: auto; mask-image: none; -webkit-mask-image: none; scrollbar-width: none; }
   .brand-rail-window::-webkit-scrollbar { display: none; }
+  .testimonial-marquee { overflow-x: auto; mask-image: none; -webkit-mask-image: none; scrollbar-width: none; }
+  .testimonial-marquee::-webkit-scrollbar { display: none; }
+  .testimonial-track { animation: none !important; transform: none !important; }
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }

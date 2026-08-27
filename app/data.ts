@@ -20,6 +20,17 @@ export const SERVICES = [
   },
   {
     number: "02",
+    title: "AI content creation",
+    shortTitle: "Content intelligence",
+    description:
+      "AI-assisted content systems that turn brand knowledge into useful, consistent creative at production speed.",
+    detail:
+      "We combine editorial direction, reusable prompts, human review, and channel-ready workflows so your team can produce stronger articles, social posts, campaigns, and visual concepts without losing its voice.",
+    tags: ["Content strategy", "AI workflows", "Human review"],
+    accent: "#8ce99a",
+  },
+  {
+    number: "03",
     title: "Personal branding",
     shortTitle: "Founder authority",
     description:
@@ -30,7 +41,7 @@ export const SERVICES = [
     accent: "var(--cyan)",
   },
   {
-    number: "03",
+    number: "04",
     title: "Website design & development",
     shortTitle: "Web experiences",
     description:
@@ -41,7 +52,7 @@ export const SERVICES = [
     accent: "var(--violet)",
   },
   {
-    number: "04",
+    number: "05",
     title: "Performance marketing",
     shortTitle: "Paid growth",
     description:
@@ -52,7 +63,7 @@ export const SERVICES = [
     accent: "#f7c873",
   },
   {
-    number: "05",
+    number: "06",
     title: "Search engine optimization",
     shortTitle: "Organic authority",
     description:
@@ -63,7 +74,7 @@ export const SERVICES = [
     accent: "#ff8fab",
   },
   {
-    number: "06",
+    number: "07",
     title: "Social media marketing",
     shortTitle: "Social momentum",
     description:
@@ -74,7 +85,7 @@ export const SERVICES = [
     accent: "#ff9a76",
   },
   {
-    number: "07",
+    number: "08",
     title: "E-commerce & CRO",
     shortTitle: "Revenue systems",
     description:
@@ -85,7 +96,7 @@ export const SERVICES = [
     accent: "#ff8fab",
   },
   {
-    number: "08",
+    number: "09",
     title: "Branding & creative",
     shortTitle: "Brand systems",
     description:
@@ -154,6 +165,24 @@ export const TESTIMONIALS = [
       "They did not just build features—they built a system that supports our growth and adapts as we scale.",
     name: "Daniel Carter",
     role: "Founder, ScaleSync (USA)",
+  },
+  {
+    quote:
+      "Our team finally has a content workflow that is fast, consistent, and easy to manage across every channel.",
+    name: "Ayesha Khan",
+    role: "Head of Marketing, Consumer Brand (UAE)",
+  },
+  {
+    quote:
+      "The handover was clean, the reporting was clear, and every part of the system had a practical purpose.",
+    name: "Omar Rahman",
+    role: "Operations Lead, Commerce Company (KSA)",
+  },
+  {
+    quote:
+      "Alviro Tech connected our campaigns, website, and analytics into one process we could actually understand and improve.",
+    name: "Olivia Bennett",
+    role: "Growth Lead, Professional Services (UK)",
   },
 ] as const;
 

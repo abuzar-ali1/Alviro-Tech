@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { AnimatePresence, motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { ArrowDown, ArrowRight, ArrowUpRight, BrainCircuit, Globe2, Megaphone, MonitorSmartphone, MousePointerClick, Palette, Search, Share2, Sparkles, Zap } from "lucide-react";
 
@@ -56,7 +57,7 @@ export default function Hero() {
               </span>
             </motion.div>
 
-            <h1 className="display-type text-balance text-[clamp(4.1rem,10.5vw,9.3rem)] leading-[.79] text-white">
+            <h1 className="display-type text-balance text-[clamp(3.45rem,8vw,7.25rem)] leading-[.82] text-white">
               <span className="hero-line block overflow-hidden pb-[.08em]"><span className="block">We build</span></span>
               <span className="hero-line hero-line-delay block overflow-hidden pb-[.09em]"><span className="text-gradient block">digital</span></span>
               <span className="hero-line hero-line-late block overflow-hidden pb-[.1em]"><span className="block">growth.</span></span>
@@ -75,7 +76,7 @@ export default function Hero() {
               </div>
               <div className="flex flex-wrap gap-3 sm:justify-end">
                 <a href="#services" className="cta-primary">Explore services <ArrowDown className="size-4" /></a>
-                <a href="#contact" className="cta-secondary">Request a quote <ArrowUpRight className="size-4" /></a>
+                <a href="#quote-form" className="cta-secondary">Request a quote <ArrowUpRight className="size-4" /></a>
               </div>
             </motion.div>
           </motion.div>
@@ -114,7 +115,7 @@ export default function Hero() {
                   </svg>
 
                   <div className="absolute left-1/2 top-1/2 z-10 w-[9.25rem] -translate-x-1/2 -translate-y-1/2 text-center sm:w-[10.5rem]">
-                    <motion.div animate={reduceMotion ? undefined : { scale: [1, 1.06, 1] }} transition={{ duration: 1.8, repeat: Infinity }} className="mx-auto grid size-14 place-items-center rounded-[1.15rem] border border-white/15 bg-white/[.07] text-white shadow-[0_0_34px_rgba(200,255,90,.12)] backdrop-blur-xl sm:size-16"><Zap className="size-6 text-[var(--acid)]" /></motion.div>
+                    <motion.div animate={reduceMotion ? undefined : { scale: [1, 1.06, 1] }} transition={{ duration: 1.8, repeat: Infinity }} className="mx-auto grid size-14 place-items-center rounded-[1.15rem] border border-black/10 bg-[var(--acid)] p-3 text-[var(--ink)] shadow-[0_0_34px_rgba(200,255,90,.28)] sm:size-16 sm:p-3.5"><Image src="/Alviro-Tech-Logo-Black.png" alt="Alviro Tech" width={937} height={823} className="h-full w-full object-contain" /></motion.div>
                     <p className="mono-type mt-3 text-[7px] font-bold uppercase tracking-[.18em] text-white/32">Now optimizing</p>
                     <AnimatePresence mode="wait">
                       <motion.div key={CHANNELS[activeChannel].name} initial={reduceMotion ? false : { opacity: 0, y: 7, filter: "blur(5px)" }} animate={{ opacity: 1, y: 0, filter: "blur(0px)" }} exit={{ opacity: 0, y: -7, filter: "blur(5px)" }} transition={{ duration: 0.32 }}>

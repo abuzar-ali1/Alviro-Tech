@@ -80,7 +80,7 @@ export default function Navigation() {
     const target = document.getElementById(href.slice(1));
     if (!target) return;
     const wasOpen = open;
-    setActive(href);
+    setActive(href === "#quote-form" ? "#contact" : href);
     setOpen(false);
     const offset = (barRef.current?.getBoundingClientRect().height ?? 64) + 28;
     window.history.replaceState(null, "", href);
@@ -136,13 +136,13 @@ export default function Navigation() {
 
             <div className="hidden items-center gap-2 xl:flex">
               <a href={CONTACT.linkedin} target="_blank" rel="noopener noreferrer" aria-label="Alviro Tech on LinkedIn" className="grid size-9 place-items-center rounded-full border border-white/10 text-[var(--muted)] transition hover:border-white/25 hover:bg-white/[.06] hover:text-white"><Linkedin className="size-4" /></a>
-              <a data-header-accent="quote" href="#contact" onClick={(event) => navigate(event, "#contact")} className="ml-1 inline-flex h-10 items-center gap-2 rounded-full px-4 text-[11px] font-black uppercase tracking-[.08em] transition-[background-color,transform] duration-500 hover:-translate-y-0.5" style={{ backgroundColor: accent, color: "#06080b" }}>
+              <a data-header-accent="quote" href="#quote-form" onClick={(event) => navigate(event, "#quote-form")} className="ml-1 inline-flex h-10 items-center gap-2 rounded-full px-4 text-[11px] font-black uppercase tracking-[.08em] transition-[background-color,transform] duration-500 hover:-translate-y-0.5" style={{ backgroundColor: accent, color: "#06080b" }}>
                 Request a quote <ArrowUpRight className="size-3.5" />
               </a>
             </div>
 
             <div className="flex shrink-0 items-center gap-2 xl:hidden">
-              <a data-header-accent="quote" href="#contact" onClick={(event) => navigate(event, "#contact")} className="inline-flex h-10 items-center gap-2 rounded-xl px-3 text-[10px] font-black uppercase tracking-[.06em] transition-colors duration-500 sm:rounded-full sm:px-4" style={{ backgroundColor: accent, color: "#06080b" }}>
+              <a data-header-accent="quote" href="#quote-form" onClick={(event) => navigate(event, "#quote-form")} className="inline-flex h-10 items-center gap-2 rounded-xl px-3 text-[10px] font-black uppercase tracking-[.06em] transition-colors duration-500 sm:rounded-full sm:px-4" style={{ backgroundColor: accent, color: "#06080b" }}>
                 <span className="hidden sm:inline">Request quote</span><ArrowUpRight className="size-3.5" />
               </a>
               <button ref={toggleRef} type="button" aria-expanded={open} aria-controls="mobile-menu" aria-label={open ? "Close navigation" : "Open navigation"} onClick={() => setOpen((value) => !value)} className="grid size-10 place-items-center rounded-xl border border-white/10 bg-white/[.04] text-white">
