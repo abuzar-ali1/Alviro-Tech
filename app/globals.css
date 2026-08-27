@@ -15,7 +15,7 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; background: var(--ink); }
+html { font-size: 15px; scroll-behavior: smooth; background: var(--ink); }
 body {
   min-height: 100vh;
   overflow-x: hidden;
@@ -228,6 +228,7 @@ section { scroll-margin-top: 84px; }
 @media (min-width: 768px) { .site-container { width: min(100% - 4rem, 84rem); } }
 @media (min-width: 1024px) { .service-card { position: sticky; top: var(--service-top, 7rem); } }
 @media (max-width: 639px) {
+  html { font-size: 14.5px; }
   .display-type { letter-spacing: -.055em; }
   .cta-primary, .cta-secondary { width: 100%; }
   .service-card { position: relative; top: auto; }

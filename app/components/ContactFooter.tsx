@@ -2,6 +2,7 @@
 
 import { useState, type ChangeEvent, type FormEvent } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import {
   ArrowUp,
@@ -16,6 +17,7 @@ import {
   Send,
 } from "lucide-react";
 import { CONTACT, NAV_LINKS } from "../data";
+import { CookieSettingsButton } from "./CookieConsent";
 
 type FormState = {
   name: string;
@@ -76,7 +78,7 @@ export function ContactSection() {
   return (
     <section
       id="contact"
-      className="relative overflow-hidden bg-[var(--ink-soft)] py-24 sm:py-32"
+      className="relative overflow-hidden bg-[var(--ink-soft)] py-20 sm:py-24"
     >
       <div
         className="grid-field absolute inset-0 opacity-45"
@@ -96,11 +98,11 @@ export function ContactSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.72, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-14 grid gap-8 lg:mb-20 lg:grid-cols-[1fr_25rem] lg:items-end"
+          className="mb-12 grid gap-8 lg:mb-16 lg:grid-cols-[1fr_25rem] lg:items-end"
         >
           <div>
             <p className="eyebrow mb-6 text-[#ff8fab]">05 / Open channel</p>
-            <h2 className="display-type max-w-5xl text-[clamp(3.4rem,8.7vw,7.8rem)] leading-[.84] text-white">
+            <h2 className="display-type max-w-5xl text-[clamp(2.9rem,6.4vw,5.8rem)] leading-[.87] text-white">
               Bring us the
               <span className="text-gradient block">growth problem.</span>
             </h2>
@@ -124,7 +126,7 @@ export function ContactSection() {
                 <p className="mono-type text-[.65rem] font-bold uppercase tracking-[.18em] text-[var(--cyan)]">
                   Free consultation
                 </p>
-                <h3 className="display-type mt-2 text-3xl text-white sm:text-4xl">
+                <h3 className="display-type mt-2 text-2xl text-white sm:text-3xl">
                   Start the brief.
                 </h3>
               </div>
@@ -249,7 +251,7 @@ export function ContactSection() {
                   <span className="relative inline-flex size-3 rounded-full bg-[var(--ink)]" />
                 </span>
               </div>
-              <p className="display-type max-w-sm text-4xl leading-[.95] sm:text-5xl">
+              <p className="display-type max-w-sm text-3xl leading-[.98] sm:text-4xl">
                 Booking select partnerships.
               </p>
               <p className="mt-5 max-w-sm text-sm font-medium leading-6 text-black/62">
@@ -332,11 +334,11 @@ export function ContactSection() {
 export function Footer() {
   return (
     <footer className="relative overflow-hidden border-t border-white/10 bg-[var(--ink)] text-white">
-      <div className="site-container py-16 sm:py-20">
+      <div className="site-container py-14 sm:py-16">
         <div className="grid gap-12 border-b border-white/10 pb-14 lg:grid-cols-[1.4fr_.6fr] lg:items-end lg:gap-20 lg:pb-20">
           <div>
             <p className="eyebrow text-[var(--acid)]">Ready when you are</p>
-            <h2 className="display-type mt-6 max-w-4xl text-[clamp(2.8rem,7vw,6.8rem)] leading-[.88]">
+            <h2 className="display-type mt-6 max-w-4xl text-[clamp(2.5rem,5.5vw,5rem)] leading-[.9]">
               Stop guessing.
               <span className="text-gradient block">Start scaling.</span>
             </h2>
@@ -434,7 +436,13 @@ export function Footer() {
             © {new Date().getUTCFullYear()} Alviro Tech. Built for measurable
             growth.
           </p>
-          <div className="flex items-center justify-between gap-6">
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-3 sm:justify-end">
+            <nav aria-label="Legal and privacy" className="flex items-center gap-5">
+              <Link href="/privacy" className="mono-type transition hover:text-[var(--acid)]">
+                Privacy policy
+              </Link>
+              <CookieSettingsButton className="mono-type uppercase tracking-[.16em] transition hover:text-[var(--acid)]" />
+            </nav>
             <p className="mono-type">Strategy · Design · Technology</p>
             <a
               href="#home"

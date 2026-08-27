@@ -72,15 +72,15 @@ export function BrandRail() {
 export function Services() {
   const reduceMotion = useReducedMotion();
   return (
-    <section id="services" className="relative overflow-clip bg-[var(--ink-soft)] py-24 sm:py-32">
+    <section id="services" className="relative overflow-clip bg-[var(--ink-soft)] py-20 sm:py-24">
       <div className="grid-field absolute inset-0 opacity-45" aria-hidden="true" />
       <div className="site-container relative">
-        <motion.header variants={reveal} initial={reduceMotion ? false : "hidden"} whileInView="visible" viewport={{ once: true, amount: 0.3 }} className="mb-14 grid gap-8 lg:mb-20 lg:grid-cols-[1fr_25rem] lg:items-end">
-          <div><p className="eyebrow mb-6 text-[var(--cyan)]">02 / What we do</p><h2 className="display-type max-w-4xl text-[clamp(3.4rem,8.5vw,7.7rem)] leading-[.84] text-white">Growth is a<span className="text-gradient block">connected system.</span></h2></div>
+        <motion.header variants={reveal} initial={reduceMotion ? false : "hidden"} whileInView="visible" viewport={{ once: true, amount: 0.3 }} className="mb-12 grid gap-8 lg:mb-16 lg:grid-cols-[1fr_25rem] lg:items-end">
+          <div><p className="eyebrow mb-6 text-[var(--cyan)]">02 / What we do</p><h2 className="display-type max-w-4xl text-[clamp(2.8rem,6.5vw,5.8rem)] leading-[.87] text-white">Growth is a<span className="text-gradient block">connected system.</span></h2></div>
           <p className="border-l border-[var(--cyan)] pl-5 text-base leading-7 text-[var(--muted)] sm:text-lg">Strategy, creative, technology, and optimization working together—never as disconnected deliverables.</p>
         </motion.header>
 
-        <div className="space-y-8 lg:space-y-12">
+        <div className="space-y-6 lg:space-y-8">
           {SERVICES.map((service, index) => {
             const Icon = SERVICE_ICONS[index];
             return (
@@ -90,19 +90,19 @@ export function Services() {
                 whileInView={reduceMotion ? undefined : { opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true, amount: 0.18 }}
                 transition={{ duration: 0.78, delay: index * 0.04, ease: [0.16, 1, 0.3, 1] }}
-                className="service-card project-glow relative isolate overflow-hidden rounded-[1.75rem] border border-white/11 bg-[#111820] shadow-[0_34px_100px_rgba(0,0,0,.42)] lg:min-h-[34rem] lg:rounded-[2.25rem]"
+                className="service-card project-glow relative isolate overflow-hidden rounded-[1.75rem] border border-white/11 bg-[#111820] shadow-[0_34px_100px_rgba(0,0,0,.42)] lg:min-h-[28rem] lg:rounded-[2.25rem]"
                 style={{ "--service-top": `${96 + index * 18}px`, zIndex: index + 1 } as CSSProperties}
               >
                 <div className="absolute inset-y-0 left-0 w-1.5" style={{ backgroundColor: service.accent }} aria-hidden="true" />
-                <div className="grid h-full gap-8 p-6 sm:p-8 lg:min-h-[34rem] lg:grid-cols-[.72fr_1.28fr] lg:items-center lg:p-11">
+                <div className="grid h-full gap-7 p-6 sm:p-8 lg:min-h-[28rem] lg:grid-cols-[.72fr_1.28fr] lg:items-center lg:p-9">
                   <div>
                     <div className="flex items-center justify-between gap-5"><span className="mono-type text-[11px] font-bold tracking-[.2em] text-white/35">{service.number}</span><span className="grid size-12 place-items-center rounded-2xl text-[var(--ink)]" style={{ backgroundColor: service.accent }}><Icon className="size-5" /></span></div>
                     <p className="eyebrow mt-12" style={{ color: service.accent }}>{service.shortTitle}</p>
-                    <h3 className="display-type mt-5 max-w-xl text-balance text-[clamp(2.3rem,4.6vw,4.7rem)] leading-[.9] text-white">{service.title}</h3>
+                    <h3 className="display-type mt-5 max-w-xl text-balance text-[clamp(2rem,3.5vw,3.65rem)] leading-[.93] text-white">{service.title}</h3>
                   </div>
                   <div className="lg:border-l lg:border-white/10 lg:pl-10">
-                    <p className="max-w-2xl text-pretty text-lg leading-8 text-white/72 sm:text-xl">{service.description}</p>
-                    <p className="mt-5 max-w-2xl text-sm leading-7 text-[var(--muted)] sm:text-base">{service.detail}</p>
+                    <p className="max-w-2xl text-pretty text-base leading-7 text-white/72 sm:text-lg">{service.description}</p>
+                    <p className="mt-5 max-w-2xl text-sm leading-7 text-[var(--muted)] sm:text-[15px]">{service.detail}</p>
                     <div className="mt-8 flex flex-wrap gap-2.5">{service.tags.map((tag) => <span key={tag} className="mono-type rounded-full border border-white/10 bg-white/[.04] px-3 py-2 text-[9px] font-bold uppercase tracking-[.12em] text-white/55">{tag}</span>)}</div>
                   </div>
                 </div>
@@ -118,20 +118,20 @@ export function Services() {
 export function Process() {
   const reduceMotion = useReducedMotion();
   return (
-    <section id="process" className="relative overflow-hidden bg-[var(--paper)] py-24 text-[var(--ink)] sm:py-32">
+    <section id="process" className="relative overflow-hidden bg-[var(--paper)] py-20 text-[var(--ink)] sm:py-24">
       <div className="grid-field-dark absolute inset-0 opacity-70" aria-hidden="true" />
       <div className="absolute -left-32 top-20 size-[30rem] rounded-full bg-[var(--acid)]/30 blur-[120px]" aria-hidden="true" />
       <div className="absolute -right-40 bottom-0 size-[34rem] rounded-full bg-[var(--cyan)]/24 blur-[130px]" aria-hidden="true" />
       <div className="site-container relative">
-        <motion.header variants={reveal} initial={reduceMotion ? false : "hidden"} whileInView="visible" viewport={{ once: true, amount: 0.3 }} className="mb-14 grid gap-8 lg:mb-20 lg:grid-cols-[1fr_26rem] lg:items-end">
-          <div><p className="eyebrow mb-6 text-[#5f7820]">03 / The 6-D framework</p><h2 className="display-type max-w-5xl text-[clamp(3rem,6.4vw,5.8rem)] leading-[.88]">From uncertainty<span className="text-gradient-dark block">to momentum.</span></h2></div>
+        <motion.header variants={reveal} initial={reduceMotion ? false : "hidden"} whileInView="visible" viewport={{ once: true, amount: 0.3 }} className="mb-12 grid gap-8 lg:mb-16 lg:grid-cols-[1fr_26rem] lg:items-end">
+          <div><p className="eyebrow mb-6 text-[#5f7820]">03 / The 6-D framework</p><h2 className="display-type max-w-5xl text-[clamp(2.7rem,5.4vw,4.8rem)] leading-[.9]">From uncertainty<span className="text-gradient-dark block">to momentum.</span></h2></div>
           <p className="border-l border-black/25 pl-5 text-base leading-7 text-black/58 sm:text-lg">A clear operating rhythm that removes guesswork, aligns every decision, and keeps performance visible.</p>
         </motion.header>
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {PROCESS.map((step, index) => (
-            <motion.article key={step.number} initial={reduceMotion ? false : { opacity: 0, y: 32 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.24 }} transition={{ duration: 0.65, delay: (index % 3) * 0.08, ease: [0.16, 1, 0.3, 1] }} className="group relative min-h-[17.5rem] overflow-hidden rounded-[1.75rem] border border-black/8 bg-white/65 p-6 shadow-[0_22px_60px_rgba(6,8,11,.08)] transition duration-500 hover:-translate-y-2 hover:bg-white sm:p-8">
+            <motion.article key={step.number} initial={reduceMotion ? false : { opacity: 0, y: 32 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.24 }} transition={{ duration: 0.65, delay: (index % 3) * 0.08, ease: [0.16, 1, 0.3, 1] }} className="group relative min-h-[15.5rem] overflow-hidden rounded-[1.75rem] border border-black/8 bg-white/65 p-6 shadow-[0_22px_60px_rgba(6,8,11,.08)] transition duration-500 hover:-translate-y-2 hover:bg-white sm:p-7">
               <div className="absolute right-0 top-0 size-36 rounded-full bg-[var(--acid)]/16 blur-[50px] transition group-hover:bg-[var(--cyan)]/20" aria-hidden="true" />
-              <div className="relative flex h-full flex-col"><div className="flex items-center justify-between"><span className="display-type text-5xl text-[#617b20] sm:text-6xl">{step.number}.</span><ArrowUpRight className="size-5 text-black/30 transition group-hover:rotate-45 group-hover:text-black" /></div><div className="mt-auto pt-10"><h3 className="display-type text-2xl sm:text-3xl">{step.title}</h3><p className="mt-4 text-sm leading-7 text-black/58 sm:text-[15px]">{step.description}</p></div></div>
+              <div className="relative flex h-full flex-col"><div className="flex items-center justify-between"><span className="display-type text-4xl text-[#617b20] sm:text-5xl">{step.number}.</span><ArrowUpRight className="size-5 text-black/30 transition group-hover:rotate-45 group-hover:text-black" /></div><div className="mt-auto pt-8"><h3 className="display-type text-xl sm:text-2xl">{step.title}</h3><p className="mt-3 text-sm leading-6 text-black/58 sm:text-[14px]">{step.description}</p></div></div>
             </motion.article>
           ))}
         </div>
@@ -143,12 +143,12 @@ export function Process() {
 export function Results() {
   const reduceMotion = useReducedMotion();
   return (
-    <section id="results" className="relative overflow-hidden bg-[var(--ink)] py-24 sm:py-32">
+    <section id="results" className="relative overflow-hidden bg-[var(--ink)] py-20 sm:py-24">
       <div className="grid-field absolute inset-0 opacity-45" aria-hidden="true" />
       <div className="absolute -right-40 top-0 size-[36rem] rounded-full bg-[var(--violet)]/10 blur-[140px]" aria-hidden="true" />
       <div className="site-container relative">
-        <motion.header variants={reveal} initial={reduceMotion ? false : "hidden"} whileInView="visible" viewport={{ once: true, amount: 0.3 }} className="mb-14 grid gap-8 lg:mb-20 lg:grid-cols-[1fr_24rem] lg:items-end">
-          <div><p className="eyebrow mb-6 text-[#f7c873]">04 / Client signal</p><h2 className="display-type max-w-5xl text-[clamp(3.5rem,8.7vw,8rem)] leading-[.84] text-white">Built for real<span className="text-gradient block">business impact.</span></h2></div>
+        <motion.header variants={reveal} initial={reduceMotion ? false : "hidden"} whileInView="visible" viewport={{ once: true, amount: 0.3 }} className="mb-12 grid gap-8 lg:mb-16 lg:grid-cols-[1fr_24rem] lg:items-end">
+          <div><p className="eyebrow mb-6 text-[#f7c873]">04 / Client signal</p><h2 className="display-type max-w-5xl text-[clamp(2.9rem,6.4vw,5.8rem)] leading-[.87] text-white">Built for real<span className="text-gradient block">business impact.</span></h2></div>
           <div className="rounded-3xl border border-white/10 bg-white/[.035] p-6"><div className="flex items-center gap-3 text-[var(--acid)]"><ShieldCheck className="size-5" /><span className="mono-type text-[10px] font-bold uppercase tracking-[.16em]">Execution over theatre</span></div><p className="mt-4 text-sm leading-7 text-[var(--muted)]">Systems that improve visibility, speed, control, and long-term scalability.</p></div>
         </motion.header>
         <div className="testimonial-marquee">
@@ -164,7 +164,7 @@ export function Results() {
                       whileInView={copy === 0 && !reduceMotion ? { opacity: 1, y: 0 } : undefined}
                       viewport={{ once: true, amount: 0.18 }}
                       transition={{ duration: 0.65, delay: index * 0.05, ease: [0.16, 1, 0.3, 1] }}
-                      className="result-card group relative isolate flex min-h-[26rem] w-[min(82vw,28rem)] shrink-0 overflow-hidden rounded-[1.75rem] border border-white/10 bg-[#10161d]/90 p-6 shadow-[0_28px_90px_rgba(0,0,0,.3)] sm:min-h-[28rem] sm:p-8"
+                      className="result-card group relative isolate flex min-h-[22rem] w-[min(82vw,25rem)] shrink-0 overflow-hidden rounded-[1.75rem] border border-white/10 bg-[#10161d]/90 p-6 shadow-[0_28px_90px_rgba(0,0,0,.3)] sm:min-h-[24rem] sm:p-7"
                       style={{ "--result-accent": signal.accent } as CSSProperties}
                     >
                       <div className="result-card-halo absolute -right-16 -top-20 size-64 rounded-full bg-[var(--result-accent)] opacity-[.09] blur-[75px] transition duration-700 group-hover:scale-125 group-hover:opacity-[.17]" aria-hidden="true" />
@@ -177,11 +177,11 @@ export function Results() {
                           </span>
                         </div>
 
-                        <blockquote className="display-type mt-10 text-balance text-[clamp(1.45rem,2vw,2rem)] leading-[1.05] text-white">
+                        <blockquote className="display-type mt-8 text-balance text-[clamp(1.25rem,1.7vw,1.65rem)] leading-[1.08] text-white">
                           “{item.quote}”
                         </blockquote>
 
-                        <figcaption className="mt-auto pt-10">
+                        <figcaption className="mt-auto pt-8">
                           <div className="mb-5 flex items-center gap-2">
                             <span className="h-px w-7 bg-[var(--result-accent)]" aria-hidden="true" />
                             <span className="mono-type text-[9px] font-bold uppercase tracking-[.16em] text-[var(--result-accent)]">{signal.label}</span>

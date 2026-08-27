@@ -39,7 +39,7 @@ export default function Hero() {
   }, [orbitPaused, reduceMotion]);
 
   return (
-    <section ref={sectionRef} id="home" className="relative flex min-h-[100svh] items-center overflow-hidden bg-[var(--ink)] pb-14 pt-28 sm:pt-32 lg:pb-18">
+    <section ref={sectionRef} id="home" className="relative flex min-h-[100svh] items-center overflow-hidden bg-[var(--ink)] pb-12 pt-24 sm:pt-28 lg:pb-14">
       <div className="grid-field absolute inset-0 opacity-60" aria-hidden="true" />
       <div className="orb absolute -left-40 top-[6%] size-[28rem] rounded-full bg-[var(--violet)]/16 blur-[120px]" aria-hidden="true" />
       <div className="orb absolute -right-40 top-[18%] size-[36rem] rounded-full bg-[var(--cyan)]/14 blur-[140px] [animation-delay:1.2s]" aria-hidden="true" />
@@ -57,7 +57,7 @@ export default function Hero() {
               </span>
             </motion.div>
 
-            <h1 className="display-type text-balance text-[clamp(3.45rem,8vw,7.25rem)] leading-[.82] text-white">
+            <h1 className="display-type text-balance text-[clamp(3.1rem,6.8vw,6.2rem)] leading-[.84] text-white">
               <span className="hero-line block overflow-hidden pb-[.08em]"><span className="block">We build</span></span>
               <span className="hero-line hero-line-delay block overflow-hidden pb-[.09em]"><span className="text-gradient block">digital</span></span>
               <span className="hero-line hero-line-late block overflow-hidden pb-[.1em]"><span className="block">growth.</span></span>
@@ -96,7 +96,7 @@ export default function Hero() {
                 <div className="mt-5 flex items-start justify-between gap-5">
                   <div>
                     <p className="mono-type text-[9px] font-bold uppercase tracking-[.18em] text-[var(--cyan)]">Connected digital growth</p>
-                    <h2 className="display-type mt-2 max-w-[18rem] text-[2rem] leading-[.9] text-white sm:text-[2.55rem]">Every channel.<br /><span className="text-gradient">One engine.</span></h2>
+                    <h2 className="display-type mt-2 max-w-[18rem] text-[1.8rem] leading-[.92] text-white sm:text-[2.25rem]">Every channel.<br /><span className="text-gradient">One engine.</span></h2>
                   </div>
                   <motion.span animate={reduceMotion ? undefined : { rotate: [0, 10, -5, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }} className="grid size-11 shrink-0 place-items-center rounded-2xl bg-[var(--acid)] text-[var(--ink)] shadow-[0_0_34px_rgba(200,255,90,.28)] sm:size-12"><MousePointerClick className="size-5" /></motion.span>
                 </div>
@@ -156,7 +156,7 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        <motion.div initial={reduceMotion ? false : { opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1, duration: 0.7 }} className="mt-16 grid grid-cols-3 border-y border-white/10 lg:mt-20 lg:max-w-3xl">
+        <motion.div initial={reduceMotion ? false : { opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1, duration: 0.7 }} className="mt-12 grid grid-cols-3 border-y border-white/10 lg:mt-16 lg:max-w-3xl">
           {[["100+", "Projects completed"], ["08", "Growth disciplines"], ["24/7", "Delivery support"]].map(([value, label], index) => <div key={label} className={`py-5 ${index ? "border-l border-white/10 pl-5 sm:pl-8" : "pr-4"}`}><p className="display-type text-2xl text-white sm:text-3xl">{value}</p><p className="mono-type mt-1 text-[8px] font-bold uppercase tracking-[.14em] text-white/38 sm:text-[9px]">{label}</p></div>)}
         </motion.div>
       </div>
