@@ -65,7 +65,7 @@ export default function Hero() {
 
             <motion.div initial={reduceMotion ? false : { opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.65, duration: 0.7 }} className="mt-8 grid gap-8 border-t border-white/10 pt-7 sm:grid-cols-[1fr_auto] sm:items-end">
               <div>
-                <p className="text-pretty max-w-xl text-[15px] leading-7 text-white/58 sm:text-[17px]">We turn ambitious ideas into high-performance websites, campaigns, and revenue systems—built to scale without the guesswork.</p>
+                <p className="text-pretty max-w-xl text-[15px] leading-7 text-white/58 sm:text-[17px]">Alviro Tech turns ambitious ideas into high-performance websites, campaigns, and revenue systems—built to scale without the guesswork.</p>
                 <div className="mt-5 flex h-8 items-center gap-3 text-sm font-bold text-white/86">
                   <span className="grid size-7 place-items-center rounded-full border border-white/10 bg-white/[.04] text-[var(--cyan)]"><Zap className="size-3.5" /></span>
                   <span>Engineering better</span>

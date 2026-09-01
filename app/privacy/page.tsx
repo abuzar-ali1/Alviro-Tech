@@ -4,10 +4,66 @@ import Link from "next/link";
 import { ArrowLeft, Mail, ShieldCheck } from "lucide-react";
 import { CookieSettingsButton } from "../components/CookieConsent";
 import { CONTACT } from "../data";
+import {
+  ORGANIZATION_ID,
+  SITE_NAME,
+  SITE_URL,
+  WEBSITE_ID,
+  absoluteUrl,
+} from "../seo";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | Alviro Tech",
+  title: "Privacy Policy",
   description: "How Alviro Tech collects, uses, and protects information when you use this website.",
+  alternates: { canonical: "/privacy" },
+  openGraph: {
+    title: `Privacy Policy | ${SITE_NAME}`,
+    description: "How Alviro Tech handles website information, cookies, and privacy choices.",
+    url: "/privacy",
+    siteName: SITE_NAME,
+    locale: "en_GB",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `Privacy Policy | ${SITE_NAME}`,
+    description: "How Alviro Tech handles website information, cookies, and privacy choices.",
+  },
+};
+
+const privacyUrl = absoluteUrl("/privacy");
+const privacyStructuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": `${privacyUrl}#webpage`,
+      url: privacyUrl,
+      name: `Privacy Policy | ${SITE_NAME}`,
+      description: "How Alviro Tech handles website information, cookies, and privacy choices.",
+      isPartOf: { "@id": WEBSITE_ID },
+      about: { "@id": ORGANIZATION_ID },
+      inLanguage: "en",
+      dateModified: "2026-08-27",
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: SITE_NAME,
+          item: SITE_URL,
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Privacy Policy",
+          item: privacyUrl,
+        },
+      ],
+    },
+  ],
 };
 
 const sections = [
@@ -40,6 +96,12 @@ const sections = [
 export default function PrivacyPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(privacyStructuredData).replace(/</g, "\\u003c"),
+        }}
+      />
       <header className="fixed inset-x-0 top-3 z-[80] px-3 sm:top-4 sm:px-5">
         <div className="site-container flex h-16 items-center justify-between rounded-[1.25rem] border border-white/12 bg-[rgba(6,8,11,.94)] px-3 shadow-[0_18px_60px_rgba(0,0,0,.4)] backdrop-blur-2xl sm:px-4">
           <Link href="/" aria-label="Alviro Tech home" className="flex items-center gap-3 rounded-xl">

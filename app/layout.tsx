@@ -1,19 +1,47 @@
 import type { Metadata } from "next";
 import ReactLenis from "lenis/react";
 import CookieConsent from "./components/CookieConsent";
+import {
+  SITE_DESCRIPTION,
+  SITE_NAME,
+  SITE_TITLE,
+  SITE_URL,
+} from "./seo";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://alvirotech.com"),
-  title: "Alviro Tech — Digital Growth Systems",
-  description: "Alviro Tech builds high-performance websites, campaigns, brands, and growth systems for ambitious businesses.",
-  keywords: ["digital marketing agency", "web development", "performance marketing", "SEO", "branding", "Alviro Tech"],
-  openGraph: {
-    title: "Alviro Tech — Stop Guessing. Start Scaling.",
-    description: "Strategy, design, technology, and performance working as one connected growth system.",
-    type: "website",
-    url: "https://alvirotech.com",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: SITE_TITLE,
+    template: `%s | ${SITE_NAME}`,
   },
+  description: SITE_DESCRIPTION,
+  applicationName: SITE_NAME,
+  authors: [{ name: SITE_NAME, url: SITE_URL }],
+  creator: SITE_NAME,
+  publisher: SITE_NAME,
+  category: "technology",
+  classification: "Digital marketing, artificial intelligence, SEO and web development agency",
+  referrer: "origin-when-cross-origin",
+  formatDetection: {
+    address: false,
+    email: false,
+    telephone: false,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  verification: process.env.GOOGLE_SITE_VERIFICATION
+    ? { google: process.env.GOOGLE_SITE_VERIFICATION }
+    : undefined,
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
