@@ -48,7 +48,7 @@ export default function Hero() {
       <div className="site-container relative z-10">
         <div className="grid items-center gap-14 lg:grid-cols-[1.12fr_.88fr] lg:gap-12 xl:gap-20">
           <motion.div style={{ y: copyY, opacity: copyOpacity }}>
-            <motion.div initial={reduceMotion ? false : { opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1, duration: 0.7 }} className="mb-7 flex flex-wrap items-center gap-x-4 gap-y-3">
+            <motion.div initial={reduceMotion ? false : { opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1, duration: 0.7 }} className="mb-7 flex flex-wrap items-center justify-center gap-x-4 gap-y-3 text-center lg:justify-start lg:text-left">
               <span className="eyebrow text-[var(--acid)]">Alviro Tech</span>
               <span className="hidden size-1 rounded-full bg-white/25 sm:block" />
               <span className="mono-type flex items-center gap-2 text-[10px] font-bold uppercase tracking-[.16em] text-white/48">
@@ -57,7 +57,7 @@ export default function Hero() {
               </span>
             </motion.div>
 
-            <h1 className="display-type text-balance text-[clamp(2.75rem,6vw,5.3rem)] leading-[.88] text-white">
+            <h1 className="display-type mx-auto w-fit text-center text-[clamp(3.2rem,13vw,4.05rem)] leading-[.86] text-white sm:text-[clamp(4rem,9vw,5rem)] lg:mx-0 lg:text-left lg:text-[clamp(2.75rem,6vw,5.3rem)] lg:leading-[.88]">
               <span className="hero-line block overflow-hidden pb-[.08em]"><span className="block">We build</span></span>
               <span className="hero-line hero-line-delay block overflow-hidden pb-[.09em]"><span className="text-gradient block">digital</span></span>
               <span className="hero-line hero-line-late block overflow-hidden pb-[.1em]"><span className="block">growth.</span></span>
