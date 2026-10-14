@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
 export const runtime = "nodejs";
+export const maxDuration = 60;
 
 const RECIPIENT = "scale@alvirotech.com";
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -67,14 +68,20 @@ export async function POST(request: Request) {
     );
   }
 
-  const host = process.env.SMTP_HOST;
-  const port = Number(process.env.SMTP_PORT ?? "587");
-  const user = process.env.SMTP_USER;
+  const host = process.env.SMTP_HOST?.trim();
+  const port = Number(process.env.SMTP_PORT?.trim() || "587");
+  const user = process.env.SMTP_USER?.trim();
   const pass = process.env.SMTP_PASS;
-  const from = process.env.CONTACT_FROM_EMAIL || user;
+  const from = process.env.CONTACT_FROM_EMAIL?.trim() || user;
 
-  if (!host || !Number.isFinite(port) || !user || !pass || !from) {
-    console.error("Contact API is missing SMTP configuration.");
+  if (!host || !Number.isInteger(port) || port < 1 || port > 65535 || !user || !pass || !from) {
+    console.error("Contact API has missing or invalid SMTP configuration.", {
+      hostConfigured: Boolean(host),
+      portValid: Number.isInteger(port) && port >= 1 && port <= 65535,
+      userConfigured: Boolean(user),
+      passwordConfigured: Boolean(pass),
+      fromConfigured: Boolean(from),
+    });
     return NextResponse.json(
       { error: "Email delivery is being configured. Please contact us directly at scale@alvirotech.com." },
       { status: 503 },
@@ -85,9 +92,16 @@ export async function POST(request: Request) {
     host,
     port,
     secure: port === 465,
+    name: "alvirotech.com",
     auth: { user, pass },
+    // Fail within the function's execution budget if the mail server is unreachable.
+    dnsTimeout: 5_000,
+    connectionTimeout: 10_000,
+    greetingTimeout: 10_000,
+    socketTimeout: 20_000,
   });
 
+  const startedAt = Date.now();
   try {
     await transporter.sendMail({
       from: `Alviro Tech Website <${from}>`,
@@ -99,7 +113,22 @@ export async function POST(request: Request) {
     });
     return NextResponse.json({ ok: true });
   } catch (error) {
-    console.error("Contact email delivery failed:", error);
+    const smtpError = error as {
+      code?: string;
+      command?: string;
+      responseCode?: number;
+      message?: string;
+    } | null;
+    console.error("Contact email delivery failed:", {
+      host,
+      port,
+      secure: port === 465,
+      elapsedMs: Date.now() - startedAt,
+      code: smtpError?.code,
+      command: smtpError?.command,
+      responseCode: smtpError?.responseCode,
+      message: smtpError?.message,
+    });
     return NextResponse.json(
       { error: "We could not send your message right now. Please email scale@alvirotech.com directly." },
       { status: 502 },
